@@ -20,7 +20,8 @@ public class Book {
 
     @Override
     public boolean equals(Object otherBook) {
-        return true;
+        return otherBook.getClass() == this.getClass() &&
+                this.title.equals(((Book)otherBook).getTitle());
     }
 
     public String toString() {
