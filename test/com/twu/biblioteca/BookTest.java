@@ -2,8 +2,10 @@ package com.twu.biblioteca;
 
 import org.junit.Test;
 
+import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.IsNot.not;
 
 /**
  * Created by nataliadjohari on 21/02/2017.
@@ -25,7 +27,12 @@ public class BookTest {
 
     @Test
     public void emptyBookIsEqualToAnotherEmptyBookTest() {
-        assertThat(new Book(), is (new Book()));
+        assertThat(new Book(), equalTo (new Book()));
+    }
+
+    @Test
+    public void twoBooksWithDifferentTitleAreNotEqualTest() {
+        assertThat(new Book("Pride and Prejudice"), not(equalTo(new Book("Hamlet"))) );
     }
 
 }

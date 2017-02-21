@@ -17,4 +17,13 @@ public class Book {
     public String getTitle() {
         return title;
     }
+
+    @Override
+    public boolean equals(Object otherBook) {
+        return true;
+    }
+
+    public String toString() {
+        return "Book " + this.title;
+    }
 }
