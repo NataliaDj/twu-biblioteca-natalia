@@ -39,8 +39,16 @@ public class BookTest {
     public void getAuthorReturnBookAuthorTest() {
         String author = "J. K. Rowling";
         Book book = new Book();
-        book.setTitle(author);
+        book.setAuthor(author);
         assertThat(book.getAuthor(), is(author));
+    }
+
+    @Test
+    public void getYearReturnBookYearTest() {
+        int year = 1998;
+        Book book = new Book();
+        book.setYear(year);
+        assertThat(book.getYear(), is(year));
     }
 
 }
