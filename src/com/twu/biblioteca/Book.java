@@ -5,6 +5,7 @@ package com.twu.biblioteca;
  */
 public class Book {
     private String title;
+    private String author;
 
     public Book() {
         this.title = "";
@@ -16,6 +17,14 @@ public class Book {
 
     public String getTitle() {
         return title;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public String getAuthor() {
+        return this.author;
     }
 
     @Override
