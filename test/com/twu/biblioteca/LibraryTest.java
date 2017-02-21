@@ -12,13 +12,13 @@ import static org.hamcrest.MatcherAssert.assertThat;
 public class LibraryTest {
 
     @Test
-    public void getBookListReturnsAList() {
+    public void getBookListReturnsAListTest() {
         Library lib = new Library();
         assertThat(lib.getBookList(), instanceOf(java.util.List.class));
     }
 
     @Test
-    public void addBookAddsTheBookToBookList() {
+    public void addBookAddsTheBookToBookListTest() {
         Library lib = new Library();
         lib.addBook(new Book());
         assertThat(lib.getBookList().size(), is(1));
