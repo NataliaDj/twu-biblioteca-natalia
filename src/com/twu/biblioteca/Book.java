@@ -36,6 +36,16 @@ public class Book {
         return this.year;
     }
 
+    public String getDetails() {
+        String result = "";
+
+        result += title;
+        result += "\nAuthor: " + author;
+        result += "\nYear" + year;
+
+        return result;
+    }
+
     @Override
     public boolean equals(Object otherBook) {
         return otherBook.getClass() == this.getClass() &&

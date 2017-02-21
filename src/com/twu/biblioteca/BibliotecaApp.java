@@ -8,7 +8,7 @@ public class BibliotecaApp {
 
         Library lib = new Library();
         for (Book book: lib.getBookList()) {
-            System.out.println(book.getTitle());
+            System.out.println(book.getDetails());
         }
     }
 
