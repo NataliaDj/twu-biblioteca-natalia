@@ -8,16 +8,10 @@ import static org.hamcrest.MatcherAssert.assertThat;
 /**
  * Created by nataliadjohari on 21/02/2017.
  */
-public class BooksListTest {
+public class LibraryTest {
 
     @Test
     public void getBookListReturnsAList() {
-        Library lib = new Library();
-        assertThat(lib.getBookList(), instanceOf(java.util.List.class));
-    }
-
-    @Test
-    public void getBookListReturnsAListOfBooks() {
         Library lib = new Library();
         assertThat(lib.getBookList(), instanceOf(java.util.List.class));
     }
