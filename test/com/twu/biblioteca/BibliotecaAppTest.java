@@ -3,21 +3,15 @@ package com.twu.biblioteca;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.List;
+
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 /**
  * Created by nataliadjohari on 21/02/2017.
  */
-public class WelcomeTest {
-    /**
-     * Welcome Message
-     *
-     * As a customer,
-     * I would like to see a welcome message when I start the application,
-     * so that
-     * I feel welcome and know that Biblioteca is available.
-     */
+public class BibliotecaAppTest {
 
     BibliotecaApp app;
 
@@ -34,6 +28,11 @@ public class WelcomeTest {
     @Test
     public void getWelcomeMessageReturnsNewLineAtEnd() {
         assertThat(app.getWelcomeMessage(), endsWith("\n"));
+    }
+
+    @Test
+    public void getLibraryBooksReturnLibrary() {
+        assertThat(app.getLibraryBooks(), instanceOf(List.class));
     }
 
 

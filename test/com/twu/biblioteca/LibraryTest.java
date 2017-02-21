@@ -3,7 +3,7 @@ package com.twu.biblioteca;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.Arrays;
+import java.util.List;
 
 import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.hamcrest.CoreMatchers.is;
@@ -24,7 +24,7 @@ public class LibraryTest {
 
     @Test
     public void getBookListReturnsAListTest() {
-        assertThat(lib.getBookList(), instanceOf(java.util.List.class));
+        assertThat(lib.getBookList(), instanceOf(List.class));
     }
 
     @Test
