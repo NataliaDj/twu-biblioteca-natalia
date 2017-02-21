@@ -13,7 +13,7 @@ public class Library {
         bookList = new ArrayList();
     }
 
-    public List getBookList() {
+    public List<Book> getBookList() {
         return bookList;
     }
 
