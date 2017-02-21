@@ -15,4 +15,10 @@ public class BooksListTest {
         Library lib = new Library();
         assertThat(lib.getBookList(), instanceOf(java.util.List.class));
     }
+
+    @Test
+    public void getBookListReturnsAListOfBooks() {
+        Library lib = new Library();
+        assertThat(lib.getBookList(), instanceOf(java.util.List.class));
+    }
 }
