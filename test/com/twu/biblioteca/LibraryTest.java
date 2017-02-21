@@ -9,6 +9,7 @@ import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.IsCollectionContaining.hasItem;
+import static org.hamcrest.core.IsCollectionContaining.hasItems;
 
 /**
  * Created by nataliadjohari on 21/02/2017.
@@ -41,4 +42,12 @@ public class LibraryTest {
     }
 
     //test add book does not change other books in library
+    @Test
+    public void addBookDoesNotChangeOtherBooksInListTest() {
+        Book firstBook = new Book("Hamlet");
+        Book secondBook = new Book("Lion King");
+        lib.addBook(firstBook);
+        lib.addBook(secondBook);
+        assertThat(lib.getBookList(), hasItems(firstBook, secondBook));
+    }
 }
