@@ -35,4 +35,12 @@ public class BookTest {
         assertThat(new Book("Pride and Prejudice"), not(equalTo(new Book("Hamlet"))) );
     }
 
+    @Test
+    public void getAuthorReturnBookAuthorTest() {
+        String author = "J. K. Rowling";
+        Book book = new Book();
+        book.setTitle(author);
+        assertThat(book.getAuthor(), is(author));
+    }
+
 }
