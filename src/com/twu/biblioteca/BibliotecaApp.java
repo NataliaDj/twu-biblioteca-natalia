@@ -7,6 +7,6 @@ public class BibliotecaApp {
     }
 
     public String getWelcomeMessage() {
-        return "Welcome to Biblioteca";
+        return "Welcome to Biblioteca\n";
     }
 }
