@@ -23,4 +23,8 @@ public class LibraryTest {
         lib.addBook(new Book());
         assertThat(lib.getBookList().size(), is(1));
     }
+
+    //test library contains book that was added
+
+    //test add book does not change other books in library
 }

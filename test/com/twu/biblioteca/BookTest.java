@@ -23,4 +23,9 @@ public class BookTest {
         assertThat(book.getTitle(), is(title));
     }
 
+    @Test
+    public void emptyBookIsEqualToAnotherEmptyBookTest() {
+        assertThat(new Book(), is (new Book()));
+    }
+
 }
