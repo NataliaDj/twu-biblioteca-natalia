@@ -46,25 +46,25 @@ public class BookTest {
 
     @Test
     public void getYearReturnBookYearTest() {
-        int year = 1998;
+        int yearPublished = 1998;
         Book book = new Book();
-        book.setYear(year);
-        assertThat(book.getYear(), is(year));
+        book.setYearPublished(yearPublished);
+        assertThat(book.getYearPublished(), is(yearPublished));
     }
 
     @Test
     public void getBookDetailsContainTitleAuthorAndYearTest() {
         String title = "Harry Potter and The Chamber of Secrets";
         String author = "J. K. Rowling";
-        int year = 1998;
+        int yearPublished = 1998;
 
         Book book = new Book(title);
         book.setAuthor(author);
-        book.setYear(year);
+        book.setYearPublished(yearPublished);
 
         assertThat(book.getDetails(), containsString(title));
         assertThat(book.getDetails(), containsString(author));
-        assertThat(book.getDetails(), containsString(String.valueOf(year)));
+        assertThat(book.getDetails(), containsString(String.valueOf(yearPublished)));
     }
 
 }
