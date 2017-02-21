@@ -30,10 +30,4 @@ public class BibliotecaAppTest {
         assertThat(app.getWelcomeMessage(), endsWith("\n"));
     }
 
-    @Test
-    public void getLibraryBooksReturnLibrary() {
-        assertThat(app.getLibraryBooks(), instanceOf(List.class));
-    }
-
-
 }

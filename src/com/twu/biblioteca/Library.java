@@ -7,7 +7,7 @@ import java.util.List;
  * Created by nataliadjohari on 21/02/2017.
  */
 public class Library {
-    ArrayList bookList;
+    private ArrayList<Book> bookList;
 
     public Library() {
         bookList = new ArrayList();
