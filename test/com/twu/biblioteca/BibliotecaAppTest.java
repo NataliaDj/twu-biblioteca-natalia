@@ -42,6 +42,16 @@ public class BibliotecaAppTest {
 
     @Test
     public void isMenuOptionListBookReturnsTrueTest() {
-        assertThat(app.isMenuOption("List Book"), is(true));
+        assertThat(app.isMenuOption("List Books"), is(true));
+    }
+
+    @Test
+    public void isMenuOptionEmptyStringReturnsFalseTest() {
+        assertThat(app.isMenuOption(""), is(false));
+    }
+
+    @Test
+    public void isMenuOptionQuitReturnsTrueTest() {
+        assertThat(app.isMenuOption("Quit"), is(true));
     }
 }

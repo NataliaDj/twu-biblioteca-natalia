@@ -36,6 +36,11 @@ public class BibliotecaApp {
     }
 
     public boolean isMenuOption(String input) {
-        return true;
+        for (String s: this.getMenuOptions()) {
+            if (s.equals(input)) {
+                return true;
+            }
+        }
+        return false;
     }
 }
