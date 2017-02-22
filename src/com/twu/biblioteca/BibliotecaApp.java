@@ -5,6 +5,7 @@ import java.util.List;
 
 public class BibliotecaApp {
     private final String LIST_BOOKS = "List Books";
+    private final String QUIT = "Quit";
     Library lib;
 
     public static void main(String[] args) {
@@ -21,6 +22,7 @@ public class BibliotecaApp {
     public List<String> getMenuOptions() {
         List<String> options = new ArrayList<String>();
         options.add(LIST_BOOKS);
+        options.add(QUIT);
         return options;
     }
 
