@@ -53,4 +53,8 @@ public class BibliotecaApp {
         }
         return "Select a valid option!";
     }
+
+    public boolean isRunning() {
+        return true;
+    }
 }

@@ -50,22 +50,29 @@ public class BibliotecaAppTest {
     }
 
     @Test
-    public void getMenuOptionResultListBooksReturnsString() {
+    public void getMenuOptionResultListBooksReturnsStringTest() {
         assertThat(app.getMenuOptionResult("List Books"), notNullValue(String.class));
     }
 
     @Test
-    public void getMenuOptionResultInvalidOptionReturnsInvalidMessageString() {
+    public void getMenuOptionResultInvalidOptionReturnsInvalidMessageStringTest() {
         assertThat(app.getMenuOptionResult("Invalid Option"), is("Select a valid option!"));
     }
 
     @Test
-    public void getMenuOptionResultQuitReturnsEmptyString() {
+    public void getMenuOptionResultQuitReturnsEmptyStringTest() {
         assertThat(app.getMenuOptionResult("Quit"), is(""));
     }
 
     @Test
-    public void isRunningReturnTrue() {
+    public void isRunningReturnTrueTest() {
         assertThat(app.isRunning(), is (true));
+    }
+
+    @Test
+    public void isRunningAfterGetMethodOptionResultQuitIsFalseTest() {
+        assertThat(app.isRunning(), is (true));
+        app.getMenuOptionResult("Quit");
+        assertThat(app.isRunning(), is (false));
     }
 }
