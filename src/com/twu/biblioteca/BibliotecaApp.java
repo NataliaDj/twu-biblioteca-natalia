@@ -46,4 +46,12 @@ public class BibliotecaApp {
     public boolean isRunning() {
         return run;
     }
+
+    public String viewMenuOptions() {
+        String result = "";
+        for (String option: menu.getMenuOptions()) {
+            result += option + "\n";
+        }
+        return result;
+    }
 }
