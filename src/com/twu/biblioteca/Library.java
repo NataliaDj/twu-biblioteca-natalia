@@ -8,9 +8,11 @@ import java.util.List;
  */
 public class Library {
     private ArrayList<Book> bookList;
+    private ArrayList<Book> checkedoutList;
 
     public Library() {
-        bookList = new ArrayList();
+        bookList = new ArrayList<Book>();
+        checkedoutList = new ArrayList<Book>();
 
         initSampleBookList();
     }
@@ -32,10 +34,24 @@ public class Library {
         }
 
         if (i < this.bookList.size()) {
-            this.bookList.remove(i);
+            Book book = this.bookList.remove(i);
+            this.checkedoutList.add(book);
             return true;
         }
         return false;
+    }
+
+    public void returnBook(String title) {
+        int i = 0;
+        for (; i < this.checkedoutList.size(); i++) {
+            if (this.checkedoutList.get(i).getTitle().equals(title))
+                break;
+        }
+
+        if (i < this.checkedoutList.size()) {
+            Book book = this.checkedoutList.remove(i);
+            this.bookList.add(book);
+        }
     }
 
     private void initSampleBookList() {
