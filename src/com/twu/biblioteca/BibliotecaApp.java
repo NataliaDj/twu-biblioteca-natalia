@@ -8,6 +8,7 @@ public class BibliotecaApp {
     private final String QUIT = "Quit";
     private Library lib;
     private List<String> menuOptions;
+    private boolean run = true;
 
     public static void main(String[] args) {
         BibliotecaApp app = new BibliotecaApp();
@@ -49,12 +50,13 @@ public class BibliotecaApp {
             }
             return result;
         } else if (option == QUIT) {
+            run = false;
             return "";
         }
         return "Select a valid option!";
     }
 
     public boolean isRunning() {
-        return true;
+        return run;
     }
 }
