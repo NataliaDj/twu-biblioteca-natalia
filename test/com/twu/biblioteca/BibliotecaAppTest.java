@@ -54,4 +54,14 @@ public class BibliotecaAppTest {
         app.getMenuOptionResult("Quit");
         assertThat(app.isRunning(), is (false));
     }
+
+    @Test
+    public void viewMenuOptionsContainMenuItems() {
+        Menu menu = new Menu();
+        String viewOptions = app.viewMenuOptions();
+        for (String option: menu.getMenuOptions()) {
+            assertThat(viewOptions, containsString(option));
+        }
+
+    }
 }
