@@ -55,7 +55,7 @@ public class BibliotecaAppTest {
     }
 
     @Test
-    public void getMenuOptionResultQuitReturnsInvalidMessageString() {
-        assertThat(app.getMenuOptionResult("List Books"), is("Select a valid option!"));
+    public void getMenuOptionResultInvalidOptionReturnsInvalidMessageString() {
+        assertThat(app.getMenuOptionResult("Invalid Option"), is("Select a valid option!"));
     }
 }
