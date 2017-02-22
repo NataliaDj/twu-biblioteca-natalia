@@ -86,4 +86,17 @@ public class LibraryTest {
         lib.returnBook(title);
         assertThat(lib.getBookList(), hasItem(book));
     }
+
+    @Test
+    public void returnBookSuccessfullyReturnsTrue() {
+        String title = "Three Blind Mice";
+        lib.addBook(new Book(title));
+        lib.checkoutBook(title);
+        assertThat(lib.returnBook(title), is(true));
+    }
+
+    @Test
+    public void returnBookUnsuccessfullyReturnFalse() {
+        assertThat(lib.returnBook("Three Blind Mice"), is(false));
+    }
 }
