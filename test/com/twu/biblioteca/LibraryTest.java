@@ -69,4 +69,11 @@ public class LibraryTest {
         lib.addBook(book);
         assertThat(lib.checkoutBook(title), is(true));
     }
+
+
+    @Test
+    public void checkoutBookUnsuccessfullyReturnsFalse() {
+        String title = "Three Blind Mice";
+        assertThat(lib.checkoutBook(title), is(false));
+    }
 }
