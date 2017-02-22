@@ -3,7 +3,6 @@ package com.twu.biblioteca;
 import org.junit.Before;
 import org.junit.Test;
 
-import static junit.framework.TestCase.fail;
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 
@@ -27,26 +26,6 @@ public class BibliotecaAppTest {
     @Test
     public void getWelcomeMessageReturnsNewLineAtEnd() {
         assertThat(app.getWelcomeMessage(), endsWith("\n"));
-    }
-
-    @Test
-    public void getMenuOptionsContainsListBooksString() {
-        assertThat(app.getMenuOptions(), hasItem("List Books"));
-    }
-
-    @Test
-    public void isMenuOptionListBookReturnsTrueTest() {
-        assertThat(app.isMenuOption("List Books"), is(true));
-    }
-
-    @Test
-    public void isMenuOptionEmptyStringReturnsFalseTest() {
-        assertThat(app.isMenuOption(""), is(false));
-    }
-
-    @Test
-    public void isMenuOptionQuitReturnsTrueTest() {
-        assertThat(app.isMenuOption("Quit"), is(true));
     }
 
     @Test

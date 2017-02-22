@@ -1,27 +1,27 @@
 package com.twu.biblioteca;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Scanner;
 
 public class BibliotecaApp {
-    private final String LIST_BOOKS = "List Books";
-    private final String QUIT = "Quit";
     private Library lib;
-    private List<String> menuOptions;
+    private Menu menu;
     private boolean run = true;
 
     public static void main(String[] args) {
         BibliotecaApp app = new BibliotecaApp();
-        System.out.println(app.getWelcomeMessage());
+        System.out.print(app.getWelcomeMessage());
+
+        while(app.isRunning()) {
+            Scanner scanner = new Scanner(System.in);
+            String input = scanner.nextLine();
+            System.out.println(app.getMenuOptionResult(input));
+        }
 
     }
 
     public BibliotecaApp() {
         this.lib = new Library();
-        this.menuOptions = new ArrayList<String>();
-
-        menuOptions.add(LIST_BOOKS);
-        menuOptions.add(QUIT);
+        this.menu = new Menu();
 
     }
 
@@ -29,27 +29,14 @@ public class BibliotecaApp {
         return "Welcome to Biblioteca\n";
     }
 
-    public List<String> getMenuOptions() {
-        return this.menuOptions;
-    }
-
-    public boolean isMenuOption(String input) {
-        for (String s: this.getMenuOptions()) {
-            if (s.equals(input)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
     public String getMenuOptionResult(String option) {
-        if (option == LIST_BOOKS) {
+        if (option.equals(Menu.LIST_BOOKS)) {
             String result = "";
             for (Book book: lib.getBookList()) {
                 result += book.getDetails() + "\n";
             }
             return result;
-        } else if (option == QUIT) {
+        } else if (option.equals(Menu.QUIT)) {
             run = false;
             return "";
         }
