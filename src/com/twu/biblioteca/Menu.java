@@ -10,6 +10,7 @@ public class Menu {
     public static final String LIST_BOOKS = "List Books";
     public static final String QUIT = "Quit";
     public static final String CHECKOUT = "Checkout";
+    public static final String RETURN = "Return";
 
     private List<String> menuOptions;
 
@@ -18,6 +19,7 @@ public class Menu {
         menuOptions.add(Menu.LIST_BOOKS);
         menuOptions.add(Menu.QUIT);
         menuOptions.add(Menu.CHECKOUT);
+        menuOptions.add(Menu.RETURN);
     }
 
     public List<String> getMenuOptions() {

@@ -16,7 +16,7 @@ public class BibliotecaApp {
 
             Scanner scanner = new Scanner(System.in);
             String input = scanner.nextLine();
-            System.out.print(app.getMenuOptionResult(input));
+            System.out.println(app.getMenuOptionResult(input));
         }
 
     }
@@ -41,6 +41,9 @@ public class BibliotecaApp {
         } else if (option.matches(Menu.CHECKOUT + "[A-Za-z ]*")) {
             String title = option.substring(Menu.CHECKOUT.length() + 1);
             return this.checkoutBook(title);
+        } else if (option.matches(Menu.RETURN + "[A-Za-z ]*")) {
+            String title = option.substring(Menu.RETURN.length() + 1);
+            return this.returnBook(title);
         } else if (option.equals(Menu.QUIT)) {
             run = false;
             return "";
@@ -66,7 +69,15 @@ public class BibliotecaApp {
         if (lib.checkoutBook(title)) {
             return "Thank you! Enjoy the book";
         } else {
-            return "That book is not available";
+            return "That book is not available.";
+        }
+    }
+
+    private String returnBook(String title) {
+        if (lib.returnBook(title)) {
+            return "Thank you for returning the book.";
+        } else {
+            return "That is not a valid book to return.";
         }
     }
 }

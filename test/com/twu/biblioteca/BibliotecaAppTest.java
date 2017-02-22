@@ -50,7 +50,23 @@ public class BibliotecaAppTest {
 
     @Test
     public void getMenuOptionResultCheckoutUnsuccessfullyReturnsUnavailableMessage() {
-        assertThat(app.getMenuOptionResult("Checkout Tarzan"), is("That book is not available"));
+        assertThat(app.getMenuOptionResult("Checkout Tarzan"), is("That book is not available."));
+    }
+
+    @Test
+    public void getMenuOptionResultReturnSuccessfullyReturnsThankYouMessage() {
+        app.getMenuOptionResult("Checkout Hamlet");
+        assertThat(app.getMenuOptionResult("Return Hamlet"), is("Thank you for returning the book."));
+    }
+
+    @Test
+    public void getMenuOptionResultReturnUnlistedBookReturnsInvalidBookMessage() {
+        assertThat(app.getMenuOptionResult("Return Tarzan"), is("That is not a valid book to return."));
+    }
+
+    @Test
+    public void getMenuOptionResultReturnNonCheckedoutBookReturnsInvalidBookMessage() {
+        assertThat(app.getMenuOptionResult("Return Hamlet"), is("That is not a valid book to return."));
     }
 
     @Test
