@@ -41,7 +41,7 @@ public class Library {
         return false;
     }
 
-    public void returnBook(String title) {
+    public boolean returnBook(String title) {
         int i = 0;
         for (; i < this.checkedoutList.size(); i++) {
             if (this.checkedoutList.get(i).getTitle().equals(title))
@@ -51,7 +51,9 @@ public class Library {
         if (i < this.checkedoutList.size()) {
             Book book = this.checkedoutList.remove(i);
             this.bookList.add(book);
+            return true;
         }
+        return false;
     }
 
     private void initSampleBookList() {
