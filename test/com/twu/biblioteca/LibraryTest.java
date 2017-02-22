@@ -50,4 +50,13 @@ public class LibraryTest {
         lib.addBook(secondBook);
         assertThat(lib.getBookList(), hasItems(firstBook, secondBook));
     }
+
+    @Test
+    public void checkoutBookRemovesBookFromList() {
+        String title = "Three Blind Mice";
+        Book book = new Book(title);
+        lib.addBook(book));
+        lib.checkoutBook(title);
+        assertThat(lib.getBookList(), not(hasItem(book)));
+    }
 }
