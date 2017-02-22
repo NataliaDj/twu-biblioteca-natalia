@@ -12,9 +12,11 @@ public class BibliotecaApp {
         System.out.print(app.getWelcomeMessage());
 
         while(app.isRunning()) {
+            System.out.print(app.viewMenuOptions());
+
             Scanner scanner = new Scanner(System.in);
             String input = scanner.nextLine();
-            System.out.println(app.getMenuOptionResult(input));
+            System.out.print(app.getMenuOptionResult(input));
         }
 
     }
@@ -48,9 +50,11 @@ public class BibliotecaApp {
     }
 
     public String viewMenuOptions() {
-        String result = "";
+        String result = "Options:\n";
+        int counter = 1;
         for (String option: menu.getMenuOptions()) {
-            result += option + "\n";
+            result += counter + ". " +option + "\n";
+            counter++;
         }
         return result;
     }
