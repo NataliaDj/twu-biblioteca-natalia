@@ -23,6 +23,20 @@ public class Library {
         this.bookList.add(book);
     }
 
+    public boolean checkoutBook(String title) {
+        int i = 0;
+        for (; i < this.bookList.size(); i++) {
+            if (this.bookList.get(i).getTitle().equals(title)) {
+                break;
+            }
+        }
+
+        if (i < this.bookList.size()) {
+            this.bookList.remove(i);
+        }
+        return true;
+    }
+
     private void initSampleBookList() {
         this.bookList.add(new Book("A Study in Scarlet", "Sir Arthur Conan Doyle", 1887));
         this.bookList.add(new Book("The Little White Bird", "J. M. Barrie", 1902));

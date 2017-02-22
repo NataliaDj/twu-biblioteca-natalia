@@ -30,8 +30,9 @@ public class LibraryTest {
 
     @Test
     public void addBookAddsTheBookToBookListTest() {
+        int initialSize = lib.getBookList().size();
         lib.addBook(new Book());
-        assertThat(lib.getBookList().size(), is(1));
+        assertThat(lib.getBookList().size(), is(initialSize + 1));
     }
 
     //test library contains book that was added
