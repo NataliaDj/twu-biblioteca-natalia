@@ -33,8 +33,9 @@ public class Library {
 
         if (i < this.bookList.size()) {
             this.bookList.remove(i);
+            return true;
         }
-        return true;
+        return false;
     }
 
     private void initSampleBookList() {
