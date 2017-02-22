@@ -44,6 +44,16 @@ public class BibliotecaAppTest {
     }
 
     @Test
+    public void getMenuOptionResultCheckoutSuccessfullyReturnsThankYouMessage() {
+        assertThat(app.getMenuOptionResult("Checkout Hamlet"), is("Thank you! Enjoy the book"));
+    }
+
+    @Test
+    public void getMenuOptionResultCheckoutUnsuccessfullyReturnsUnavailableMessage() {
+        assertThat(app.getMenuOptionResult("Checkout Tarzan"), is("That book is not available"));
+    }
+
+    @Test
     public void isRunningReturnTrueTest() {
         assertThat(app.isRunning(), is (true));
     }
