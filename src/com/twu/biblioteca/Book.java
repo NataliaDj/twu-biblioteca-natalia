@@ -16,6 +16,12 @@ public class Book {
         this.title = title;
     }
 
+    public Book(String title, String author, int yearPublished) {
+        this.title = title;
+        this.author = author;
+        this.yearPublished = yearPublished;
+    }
+
     public String getTitle() {
         return title;
     }
@@ -41,7 +47,8 @@ public class Book {
 
         result += title;
         result += "\nAuthor: " + author;
-        result += "\nYear Published" + yearPublished;
+        result += "\nYear Published: " + yearPublished;
+        result += "\n";
 
         return result;
     }
