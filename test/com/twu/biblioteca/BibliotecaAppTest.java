@@ -58,4 +58,14 @@ public class BibliotecaAppTest {
     public void getMenuOptionResultInvalidOptionReturnsInvalidMessageString() {
         assertThat(app.getMenuOptionResult("Invalid Option"), is("Select a valid option!"));
     }
+
+    @Test
+    public void getMenuOptionResultQuitReturnsEmptyString() {
+        assertThat(app.getMenuOptionResult("Quit"), is(""));
+    }
+
+    @Test
+    public void isRunningReturnTrue() {
+        assertThat(app.isRunning(), is (true));
+    }
 }

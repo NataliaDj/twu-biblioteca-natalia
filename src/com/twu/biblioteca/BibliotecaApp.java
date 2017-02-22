@@ -48,6 +48,8 @@ public class BibliotecaApp {
                 result += book.getDetails() + "\n";
             }
             return result;
+        } else if (option == QUIT) {
+            return "";
         }
         return "Select a valid option!";
     }
