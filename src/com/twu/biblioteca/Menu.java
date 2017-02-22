@@ -9,6 +9,7 @@ import java.util.List;
 public class Menu {
     public static final String LIST_BOOKS = "List Books";
     public static final String QUIT = "Quit";
+    public static final String CHECKOUT = "Checkout";
 
     private List<String> menuOptions;
 
@@ -16,6 +17,7 @@ public class Menu {
         menuOptions = new ArrayList<String>();
         menuOptions.add(Menu.LIST_BOOKS);
         menuOptions.add(Menu.QUIT);
+        menuOptions.add(Menu.CHECKOUT);
     }
 
     public List<String> getMenuOptions() {

@@ -34,10 +34,13 @@ public class BibliotecaApp {
     public String getMenuOptionResult(String option) {
         if (option.equals(Menu.LIST_BOOKS)) {
             String result = "";
-            for (Book book: lib.getBookList()) {
+            for (Book book : lib.getBookList()) {
                 result += book.getDetails() + "\n";
             }
             return result;
+        } else if (option.matches(Menu.CHECKOUT + "[A-Za-z ]*")) {
+            String title = option.substring(Menu.CHECKOUT.length() + 1);
+            return this.checkoutBook(title);
         } else if (option.equals(Menu.QUIT)) {
             run = false;
             return "";
@@ -57,5 +60,13 @@ public class BibliotecaApp {
             counter++;
         }
         return result;
+    }
+
+    private String checkoutBook(String title) {
+        if (lib.checkoutBook(title)) {
+            return "Thank you! Enjoy the book";
+        } else {
+            return "That book is not available";
+        }
     }
 }
