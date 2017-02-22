@@ -49,6 +49,6 @@ public class BibliotecaApp {
             }
             return result;
         }
-        return null;
+        return "Select a valid option!";
     }
 }
