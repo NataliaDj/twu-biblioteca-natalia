@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BibliotecaApp {
+    private final String LIST_BOOKS = "List Books";
     Library lib;
 
     public static void main(String[] args) {
@@ -19,12 +20,12 @@ public class BibliotecaApp {
 
     public List<String> getMenuOptions() {
         List<String> options = new ArrayList<String>();
-        options.add("List Books");
+        options.add(LIST_BOOKS);
         return options;
     }
 
     public String getSelectedMenuOptionResult(String option) {
-        if (option == "List Books") {
+        if (option == LIST_BOOKS) {
             String result = "";
             for (Book book: lib.getBookList()) {
                 result += book.getDetails() + "\n";
@@ -32,5 +33,9 @@ public class BibliotecaApp {
             return result;
         }
         return null;
+    }
+
+    public boolean isMenuOption(String input) {
+        return true;
     }
 }

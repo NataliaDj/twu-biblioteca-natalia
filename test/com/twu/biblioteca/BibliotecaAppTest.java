@@ -39,4 +39,9 @@ public class BibliotecaAppTest {
     public void getSelectedMenuOptionResultAddBookReturnsBookListString() {
         assertThat(app.getSelectedMenuOptionResult("List Books"), notNullValue(String.class));
     }
+
+    @Test
+    public void isMenuOptionListBookReturnsTrueTest() {
+        assertThat(app.isMenuOption("List Book"), is(true));
+    }
 }
