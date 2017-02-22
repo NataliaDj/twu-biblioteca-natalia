@@ -10,6 +10,7 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.IsCollectionContaining.hasItem;
 import static org.hamcrest.core.IsCollectionContaining.hasItems;
+import static org.hamcrest.core.IsNot.not;
 
 /**
  * Created by nataliadjohari on 21/02/2017.
@@ -55,8 +56,16 @@ public class LibraryTest {
     public void checkoutBookRemovesBookFromList() {
         String title = "Three Blind Mice";
         Book book = new Book(title);
-        lib.addBook(book));
+        lib.addBook(book);
         lib.checkoutBook(title);
         assertThat(lib.getBookList(), not(hasItem(book)));
+    }
+
+    @Test
+    public void checkoutBookSuccessfullyReturnsTrue() {
+        String title = "Three Blind Mice";
+        Book book = new Book(title);
+        lib.addBook(book);
+        assertThat(lib.checkoutBook(title), is(true));
     }
 }
