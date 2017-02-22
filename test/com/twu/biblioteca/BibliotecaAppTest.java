@@ -34,12 +34,6 @@ public class BibliotecaAppTest {
         assertThat(app.getMenuOptions(), hasItem("List Books"));
     }
 
-    //Test for selected option List Books a list of books is returned
-    @Test
-    public void getSelectedMenuOptionResultAddBookReturnsBookListString() {
-        assertThat(app.getSelectedMenuOptionResult("List Books"), notNullValue(String.class));
-    }
-
     @Test
     public void isMenuOptionListBookReturnsTrueTest() {
         assertThat(app.isMenuOption("List Books"), is(true));
@@ -53,5 +47,15 @@ public class BibliotecaAppTest {
     @Test
     public void isMenuOptionQuitReturnsTrueTest() {
         assertThat(app.isMenuOption("Quit"), is(true));
+    }
+
+    @Test
+    public void getMenuOptionResultListBooksReturnsString() {
+        assertThat(app.getMenuOptionResult("List Books"), notNullValue(String.class));
+    }
+
+    @Test
+    public void getMenuOptionResultQuitReturnsInvalidMessageString() {
+        assertThat(app.getMenuOptionResult("List Books"), is("Select a valid option!"));
     }
 }
