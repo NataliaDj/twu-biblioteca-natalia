@@ -21,14 +21,14 @@ public class BibliotecaApp {
 
     }
 
-    public BibliotecaApp(Library library, Menu menu) {
+    public BibliotecaApp(Library library) {
         this.lib = library;
-        this.menu = menu;
+        this.menu = Menu.defaultMenu();
 
     }
 
     public static BibliotecaApp defaultBibliotecaApp() {
-        return new BibliotecaApp(Library.defaultLibrary(), Menu.defaultMenu());
+        return new BibliotecaApp(Library.defaultLibrary());
     }
 
     public String getWelcomeMessage() {
