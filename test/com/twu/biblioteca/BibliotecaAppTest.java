@@ -24,11 +24,6 @@ public class BibliotecaAppTest {
     }
 
     @Test
-    public void getWelcomeMessageReturnsNewLineAtEnd() {
-        assertThat(app.getWelcomeMessage(), endsWith("\n"));
-    }
-
-    @Test
     public void getMenuOptionResultListBooksReturnsStringTest() {
         assertThat(app.getMenuOptionResult("List Books"), notNullValue(String.class));
     }
@@ -83,7 +78,7 @@ public class BibliotecaAppTest {
 
     @Test
     public void viewMenuOptionsContainMenuItems() {
-        Menu menu = new Menu();
+        Menu menu = Menu.defaultMenu();
         String viewOptions = app.viewMenuOptions();
         for (String option: menu.getMenuOptions()) {
             assertThat(viewOptions, containsString(option));

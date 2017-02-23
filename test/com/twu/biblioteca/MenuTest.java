@@ -15,7 +15,7 @@ public class MenuTest {
 
     @Before
     public void setup() {
-        menu = new Menu();
+        menu = Menu.defaultMenu();
     }
 
     @Test
