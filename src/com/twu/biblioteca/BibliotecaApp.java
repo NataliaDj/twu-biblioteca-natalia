@@ -8,7 +8,7 @@ public class BibliotecaApp {
     private boolean run = true;
 
     public static void main(String[] args) {
-        BibliotecaApp app = new BibliotecaApp();
+        BibliotecaApp app = BibliotecaApp.defaultBibliotecaApp();
         System.out.print(app.getWelcomeMessage());
 
         while(app.isRunning()) {
@@ -21,10 +21,14 @@ public class BibliotecaApp {
 
     }
 
-    public BibliotecaApp() {
-        this.lib = Library.defaultLibrary();
-        this.menu = Menu.defaultMenu();
+    public BibliotecaApp(Library library, Menu menu) {
+        this.lib = library;
+        this.menu = menu;
 
+    }
+
+    public static BibliotecaApp defaultBibliotecaApp() {
+        return new BibliotecaApp(Library.defaultLibrary(), Menu.defaultMenu());
     }
 
     public String getWelcomeMessage() {

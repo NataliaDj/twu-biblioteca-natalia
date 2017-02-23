@@ -15,7 +15,7 @@ public class BibliotecaAppTest {
 
     @Before
     public void setup() {
-        app = new BibliotecaApp();
+        app = BibliotecaApp.defaultBibliotecaApp();
     }
 
     @Test
