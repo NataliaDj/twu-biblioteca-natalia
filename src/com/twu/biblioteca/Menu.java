@@ -1,6 +1,7 @@
 package com.twu.biblioteca;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -14,12 +15,20 @@ public class Menu {
 
     private List<String> menuOptions;
 
-    public Menu() {
-        menuOptions = new ArrayList<String>();
-        menuOptions.add(Menu.LIST_BOOKS);
-        menuOptions.add(Menu.QUIT);
-        menuOptions.add(Menu.CHECKOUT);
-        menuOptions.add(Menu.RETURN);
+    public Menu(List<String> menuOptions) {
+        this.menuOptions = menuOptions;
+    }
+
+    public static Menu defaultMenu() {
+        List<String> menuOptions = new ArrayList<String> (
+            Arrays.asList(
+                Menu.LIST_BOOKS,
+                Menu.QUIT,
+                Menu.CHECKOUT,
+                Menu.RETURN
+            )
+        );
+        return new Menu(menuOptions);
     }
 
     public List<String> getMenuOptions() {
