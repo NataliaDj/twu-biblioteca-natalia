@@ -22,7 +22,7 @@ public class BibliotecaApp {
     }
 
     public BibliotecaApp() {
-        this.lib = new Library();
+        this.lib = Library.defaultLibrary();
         this.menu = Menu.defaultMenu();
 
     }

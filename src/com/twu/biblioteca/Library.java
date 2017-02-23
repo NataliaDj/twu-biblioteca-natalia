@@ -1,20 +1,34 @@
 package com.twu.biblioteca;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
  * Created by nataliadjohari on 21/02/2017.
  */
 public class Library {
-    private ArrayList<Book> bookList;
-    private ArrayList<Book> checkedoutList;
+    private List<Book> bookList;
+    private List<Book> checkedoutList;
 
-    public Library() {
-        bookList = new ArrayList<Book>();
+    public Library(List<Book> booksList) {
+        bookList = booksList;
         checkedoutList = new ArrayList<Book>();
+    }
 
-        initSampleBookList();
+    public static Library defaultLibrary() {
+        List<Book> booksList = new ArrayList<Book>(
+                Arrays.asList(
+                    new Book("A Study in Scarlet", "Sir Arthur Conan Doyle", 1887),
+                    new Book("The Little White Bird", "J. M. Barrie", 1902),
+                    new Book("Les Miserables", "Victor Hugo", 1862),
+                    new Book("Don't Make Me Think Revisited", "Steve Krug", 2014),
+                    new Book("The Little Mermaid", "Hans Christian Andersen", 1837),
+                    new Book("Hamlet", "William Shakespeare", 1603)
+                )
+        );
+
+        return new Library(booksList);
     }
 
     public List<Book> getBookList() {
@@ -54,15 +68,6 @@ public class Library {
             return true;
         }
         return false;
-    }
-
-    private void initSampleBookList() {
-        this.bookList.add(new Book("A Study in Scarlet", "Sir Arthur Conan Doyle", 1887));
-        this.bookList.add(new Book("The Little White Bird", "J. M. Barrie", 1902));
-        this.bookList.add(new Book("Les Miserables", "Victor Hugo", 1862));
-        this.bookList.add(new Book("Don't Make Me Think Revisited", "Steve Krug", 2014));
-        this.bookList.add(new Book("The Little Mermaid", "Hans Christian Andersen", 1837));
-        this.bookList.add(new Book("Hamlet", "William Shakespeare", 1603));
     }
 
 }
