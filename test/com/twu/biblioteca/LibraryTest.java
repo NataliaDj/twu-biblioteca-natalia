@@ -20,7 +20,7 @@ public class LibraryTest {
 
     @Before
     public void setup() {
-        lib = new Library();
+        lib = Library.defaultLibrary();
     }
 
     @Test
