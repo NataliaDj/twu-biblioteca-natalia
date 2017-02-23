@@ -8,18 +8,18 @@ public class Book {
     private String author;
     private int yearPublished;
 
-    public Book() {
-        this.title = "";
-    }
-
-    public Book(String title) {
-        this.title = title;
-    }
-
     public Book(String title, String author, int yearPublished) {
         this.title = title;
         this.author = author;
         this.yearPublished = yearPublished;
+    }
+
+    public Book(String title) {
+        this(title, "", 0);
+    }
+
+    public Book() {
+        this("");
     }
 
     public String getTitle() {
