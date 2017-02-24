@@ -45,9 +45,9 @@ public class Book {
     public String getDetails() {
         String result = "";
 
-        result += title;
-        result += "\nAuthor: " + author;
-        result += "\nYear Published: " + yearPublished;
+        result += this.title;
+        result += "\nAuthor: " + this.author;
+        result += "\nYear Published: " + this.yearPublished;
         result += "\n";
 
         return result;

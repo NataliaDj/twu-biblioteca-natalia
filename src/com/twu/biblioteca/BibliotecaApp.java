@@ -9,10 +9,10 @@ public class BibliotecaApp {
 
     public static void main(String[] args) {
         BibliotecaApp app = BibliotecaApp.defaultBibliotecaApp();
-        System.out.print(app.getWelcomeMessage());
+        System.out.println(app.getWelcomeMessage());
 
         while(app.isRunning()) {
-            System.out.print(app.viewMenuOptions());
+            System.out.println(app.viewMenuOptions());
 
             Scanner scanner = new Scanner(System.in);
             String input = scanner.nextLine();
@@ -32,7 +32,7 @@ public class BibliotecaApp {
     }
 
     public String getWelcomeMessage() {
-        return "Welcome to Biblioteca\n";
+        return "Welcome to Biblioteca";
     }
 
     public String getMenuOptionResult(String option) {
@@ -66,7 +66,7 @@ public class BibliotecaApp {
             result += counter + ". " +option + "\n";
             counter++;
         }
-        return result;
+        return result.trim();
     }
 
     private String checkoutBook(String title) {
