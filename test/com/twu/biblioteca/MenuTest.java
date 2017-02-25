@@ -25,4 +25,24 @@ public class MenuTest {
         assertThat(menu.getMenuOptionsList(), hasItem("Checkout"));
         assertThat(menu.getMenuOptionsList(), hasItem("Return"));
     }
+
+    @Test
+    public void getOptionListBooksReturnsListBookOption() {
+        assertThat(Menu.toOption("List Books"), is(Menu.Option.LIST_BOOKS));
+    }
+
+    @Test
+    public void getOptionQuitReturnsQuitOption() {
+        assertThat(Menu.toOption("Quit"), is(Menu.Option.QUIT));
+    }
+
+    @Test
+    public void getOptionCheckoutTitleReturnsCheckoutOption() {
+        assertThat(Menu.toOption("Checkout Book Title"), is(Menu.Option.CHECKOUT));
+    }
+
+    @Test
+    public void getOptionReturnTitleReturnsReturnOption() {
+        assertThat(Menu.toOption("Return Book Title"), is(Menu.Option.RETURN));
+    }
 }
