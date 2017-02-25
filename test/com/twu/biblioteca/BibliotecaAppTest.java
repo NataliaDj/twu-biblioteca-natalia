@@ -105,9 +105,9 @@ public class BibliotecaAppTest {
 
     @Test
     public void viewMenuOptionsContainMenuItems() {
-        Menu menu = Menu.defaultMenu();
+        Menu menu = new Menu();
         String viewOptions = app.viewMenuOptions();
-        for (String option: menu.getMenuOptions()) {
+        for (String option: menu.getMenuOptionsList()) {
             assertThat(viewOptions, containsString(option));
         }
 

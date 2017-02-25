@@ -14,7 +14,7 @@ public class BibliotecaApp {
 
     public BibliotecaApp(Library library) {
         this.lib = library;
-        this.menu = Menu.defaultMenu();
+        this.menu = new Menu();
 
     }
 
@@ -27,22 +27,22 @@ public class BibliotecaApp {
     }
 
     public String getMenuOptionResult(String option) {
-        if (option.equals(Menu.LIST_BOOKS)) {
+        if (option.equals(Menu.Option.LIST_BOOKS.toString())) {
             return listAvailableBooks();
-        } else if (option.matches(Menu.CHECKOUT + "[A-Za-z ]*")) {
+        } else if (option.matches(Menu.Option.CHECKOUT + "[A-Za-z ]*")) {
             String result = "That book is not available.";
-            int beginIndex = Menu.CHECKOUT.length() + 1;
+            int beginIndex = Menu.Option.CHECKOUT.length() + 1;
             if (option.length() > beginIndex) {
                 result = this.checkoutBook(option.substring(beginIndex));
             }
             return result;
-        } else if (option.matches(Menu.RETURN + "[A-Za-z ]*")) {
+        } else if (option.matches(Menu.Option.RETURN + "[A-Za-z ]*")) {
             String result = "That is not a valid book to return.";
-            int beginIndex = Menu.RETURN.length() + 1;
+            int beginIndex = Menu.Option.RETURN.length() + 1;
             if (option.length() > beginIndex)
                 result = this.returnBook(option.substring(beginIndex));
             return result;
-        } else if (option.equals(Menu.QUIT)) {
+        } else if (option.equals(Menu.Option.QUIT.toString())) {
             run = false;
             return "";
         }
@@ -68,7 +68,7 @@ public class BibliotecaApp {
     public String viewMenuOptions() {
         String result = "Options:\n";
         int counter = 1;
-        for (String option: menu.getMenuOptions()) {
+        for (String option: menu.getMenuOptionsList()) {
             result += counter + ". " +option + "\n";
             counter++;
         }

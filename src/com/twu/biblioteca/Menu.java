@@ -8,43 +8,37 @@ import java.util.List;
  * Created by nataliadjohari on 22/02/2017.
  */
 public class Menu {
-    public static final String LIST_BOOKS = "List Books";
-    public static final String QUIT = "Quit";
-    public static final String CHECKOUT = "Checkout";
-    public static final String RETURN = "Return";
+    public enum Option {
+        LIST_BOOKS("List Books"), QUIT("Quit"), CHECKOUT("Checkout"), RETURN("Return"), INVALID("Invalid");
+        private String name;
+        Option(String name) {
+            this.name = name;
+        }
 
-    private List<String> menuOptions;
+        @Override
+        public String toString() {
+            return name;
+        }
 
-    public Menu(List<String> menuOptions) {
-        this.menuOptions = menuOptions;
-    }
+        public int length() {
+            return name.length();
+        }
+    };
 
-    public static Menu defaultMenu() {
-        List<String> menuOptions = new ArrayList<String> (
-            Arrays.asList(
-                Menu.LIST_BOOKS,
-                Menu.QUIT,
-                Menu.CHECKOUT,
-                Menu.RETURN
-            )
-        );
-        return new Menu(menuOptions);
-    }
-
-    public List<String> getMenuOptions() {
-        return this.menuOptions;
+    public List<String> getMenuOptionsList() {
+        List<String> options = new ArrayList<String>();
+        for (Option o: Option.values()) {
+            options.add(o.toString());
+        }
+        return options;
     }
 
     public boolean isMenuOption(String input) {
-        for (String s: this.getMenuOptions()) {
+        for (String s: this.getMenuOptionsList()) {
             if (s.equals(input)) {
                 return true;
             }
         }
         return false;
-    }
-
-    public void add(String item) {
-        this.menuOptions.add(item);
     }
 }

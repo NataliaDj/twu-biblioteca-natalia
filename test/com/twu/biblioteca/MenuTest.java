@@ -15,12 +15,12 @@ public class MenuTest {
 
     @Before
     public void setup() {
-        menu = Menu.defaultMenu();
+        menu = new Menu();
     }
 
     @Test
     public void getMenuOptionsContainsListBooksString() {
-        assertThat(menu.getMenuOptions(), hasItem("List Books"));
+        assertThat(menu.getMenuOptionsList(), hasItem("List Books"));
     }
 
     @Test
