@@ -3,6 +3,9 @@ package com.twu.biblioteca;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 
@@ -25,7 +28,21 @@ public class BibliotecaAppTest {
 
     @Test
     public void getMenuOptionResultListBooksReturnsStringTest() {
-        assertThat(app.getMenuOptionResult("List Books"), notNullValue(String.class));
+        String title = "Emma";
+        String author = "Jane Austen";
+        int yearPublished = 1815;
+        ArrayList<Book> books = new ArrayList<Book>(
+                Arrays.asList(
+                        new Book(title, author, yearPublished)
+                )
+        );
+        Library lib = new Library(books);
+        app = new BibliotecaApp(lib);
+
+        String result = app.getMenuOptionResult("List Books");
+        assertThat(result, containsString(title));
+        assertThat(result, containsString(author));
+        assertThat(result, containsString(String.valueOf(yearPublished)));
     }
 
     @Test

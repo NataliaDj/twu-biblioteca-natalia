@@ -3,9 +3,8 @@ package com.twu.biblioteca;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.List;
+import java.util.ArrayList;
 
-import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.IsCollectionContaining.hasItem;
@@ -24,8 +23,14 @@ public class LibraryTest {
     }
 
     @Test
-    public void getBookListReturnsAListTest() {
-        assertThat(lib.getBookList(), instanceOf(List.class));
+    public void getBookListReturns0ForEmptyLibraryTest() {
+        lib = new Library(new ArrayList<Book>());
+        assertThat(lib.getBookList().size(), is(0));
+    }
+
+    @Test
+    public void getDefaultBookListReturnNotEmptyList() {
+        assertThat(lib.getBookList().size(), not(is(0)));
     }
 
     @Test
