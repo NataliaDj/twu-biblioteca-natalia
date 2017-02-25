@@ -25,25 +25,4 @@ public class MenuTest {
         assertThat(menu.getMenuOptionsList(), hasItem("Checkout"));
         assertThat(menu.getMenuOptionsList(), hasItem("Return"));
     }
-
-    @Test
-    public void isMenuOptionOptionsTrueTest() {
-        assertThat(menu.isMenuOption("List Books"), is(true));
-        assertThat(menu.isMenuOption("Quit"), is(true));
-        assertThat(menu.isMenuOption("Checkout"), is(true));
-        assertThat(menu.isMenuOption("Return"), is(true));
-    }
-
-    @Test
-    public void isMenuOptionEmptyStringReturnsFalseTest() {
-        assertThat(menu.isMenuOption(""), is(false));
-    }
-
-    @Test
-    public void isMenuOptionInvalidOptionReturnFalseTest() {
-        assertThat(menu.isMenuOption("Add"), is(false));
-        assertThat(menu.isMenuOption("Delete"), is(false));
-        assertThat(menu.isMenuOption("1"), is(false));
-        assertThat(menu.isMenuOption("list books"), is(false));
-    }
 }

@@ -1,7 +1,6 @@
 package com.twu.biblioteca;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -9,7 +8,7 @@ import java.util.List;
  */
 public class Menu {
     public enum Option {
-        LIST_BOOKS("List Books"), QUIT("Quit"), CHECKOUT("Checkout"), RETURN("Return"), INVALID("Invalid");
+        LIST_BOOKS("List Books"), QUIT("Quit"), CHECKOUT("Checkout"), RETURN("Return");
         private String name;
         Option(String name) {
             this.name = name;
@@ -31,14 +30,5 @@ public class Menu {
             options.add(o.toString());
         }
         return options;
-    }
-
-    public boolean isMenuOption(String input) {
-        for (String s: this.getMenuOptionsList()) {
-            if (s.equals(input)) {
-                return true;
-            }
-        }
-        return false;
     }
 }
