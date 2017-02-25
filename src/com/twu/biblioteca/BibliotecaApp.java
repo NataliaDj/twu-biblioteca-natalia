@@ -9,16 +9,7 @@ public class BibliotecaApp {
 
     public static void main(String[] args) {
         BibliotecaApp app = BibliotecaApp.defaultBibliotecaApp();
-        System.out.println(app.getWelcomeMessage());
-
-        while(app.isRunning()) {
-            System.out.println(app.viewMenuOptions());
-
-            Scanner scanner = new Scanner(System.in);
-            String input = scanner.nextLine();
-            System.out.println(app.getMenuOptionResult(input));
-        }
-
+        app.run();
     }
 
     public BibliotecaApp(Library library) {
@@ -57,6 +48,18 @@ public class BibliotecaApp {
 
     public boolean isRunning() {
         return run;
+    }
+
+    public void run() {
+        System.out.println(this.getWelcomeMessage());
+
+        while(this.isRunning()) {
+            System.out.println(this.viewMenuOptions());
+
+            Scanner scanner = new Scanner(System.in);
+            String input = scanner.nextLine();
+            System.out.println(this.getMenuOptionResult(input));
+        }
     }
 
     public String viewMenuOptions() {
