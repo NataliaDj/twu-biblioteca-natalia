@@ -30,11 +30,18 @@ public class BibliotecaApp {
         if (option.equals(Menu.LIST_BOOKS)) {
             return listAvailableBooks();
         } else if (option.matches(Menu.CHECKOUT + "[A-Za-z ]*")) {
-            String title = option.substring(Menu.CHECKOUT.length() + 1);
-            return this.checkoutBook(title);
+            String result = "That book is not available.";
+            int beginIndex = Menu.CHECKOUT.length() + 1;
+            if (option.length() > beginIndex) {
+                result = this.checkoutBook(option.substring(beginIndex));
+            }
+            return result;
         } else if (option.matches(Menu.RETURN + "[A-Za-z ]*")) {
-            String title = option.substring(Menu.RETURN.length() + 1);
-            return this.returnBook(title);
+            String result = "That is not a valid book to return.";
+            int beginIndex = Menu.RETURN.length() + 1;
+            if (option.length() > beginIndex)
+                result = this.returnBook(option.substring(beginIndex));
+            return result;
         } else if (option.equals(Menu.QUIT)) {
             run = false;
             return "";
