@@ -27,24 +27,29 @@ public class BibliotecaApp {
     }
 
     public String getMenuOptionResult(String option) {
-        if (option.equals(Menu.Option.LIST_BOOKS.toString())) {
-            return listAvailableBooks();
-        } else if (option.matches(Menu.Option.CHECKOUT + "[A-Za-z ]*")) {
-            String result = "That book is not available.";
-            int beginIndex = Menu.Option.CHECKOUT.length() + 1;
-            if (option.length() > beginIndex) {
-                result = this.checkoutBook(option.substring(beginIndex));
+        Menu.Option chosenOption = Menu.toOption(option);
+        if (chosenOption != null) {
+
+            switch (chosenOption) {
+                case LIST_BOOKS:
+                    return listAvailableBooks();
+                case QUIT:
+                    run = false;
+                    return "";
+                case CHECKOUT:
+                    String result = "That book is not available.";
+                    int beginIndex = Menu.Option.CHECKOUT.length() + 1;
+                    if (option.length() > beginIndex) {
+                        result = this.checkoutBook(option.substring(beginIndex));
+                    }
+                    return result;
+                case RETURN:
+                    result = "That is not a valid book to return.";
+                    beginIndex = Menu.Option.RETURN.length() + 1;
+                    if (option.length() > beginIndex)
+                        result = this.returnBook(option.substring(beginIndex));
+                    return result;
             }
-            return result;
-        } else if (option.matches(Menu.Option.RETURN + "[A-Za-z ]*")) {
-            String result = "That is not a valid book to return.";
-            int beginIndex = Menu.Option.RETURN.length() + 1;
-            if (option.length() > beginIndex)
-                result = this.returnBook(option.substring(beginIndex));
-            return result;
-        } else if (option.equals(Menu.Option.QUIT.toString())) {
-            run = false;
-            return "";
         }
         return "Select a valid option!";
     }
