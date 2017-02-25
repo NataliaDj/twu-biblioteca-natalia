@@ -31,4 +31,18 @@ public class Menu {
         }
         return options;
     }
+
+    public static Option toOption(String command) {
+        for (Option o: Option.values()) {
+            try {
+                String chosenOption = command.substring(0, o.length());
+                if (o.toString().equals(chosenOption)) {
+                    return o;
+                }
+            } catch (Exception e) {
+
+            }
+        }
+        return null;
+    }
 }
