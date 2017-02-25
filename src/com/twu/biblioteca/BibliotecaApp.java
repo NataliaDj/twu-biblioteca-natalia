@@ -28,11 +28,7 @@ public class BibliotecaApp {
 
     public String getMenuOptionResult(String option) {
         if (option.equals(Menu.LIST_BOOKS)) {
-            String result = "";
-            for (Book book : lib.getBookList()) {
-                result += book.getDetails() + "\n";
-            }
-            return result;
+            return listAvailableBooks();
         } else if (option.matches(Menu.CHECKOUT + "[A-Za-z ]*")) {
             String title = option.substring(Menu.CHECKOUT.length() + 1);
             return this.checkoutBook(title);
@@ -86,5 +82,13 @@ public class BibliotecaApp {
         } else {
             return "That is not a valid book to return.";
         }
+    }
+
+    private String listAvailableBooks() {
+        String result = "";
+        for (Book book : lib.getBookList()) {
+            result += book.getDetails() + "\n";
+        }
+        return result.trim();
     }
 }
