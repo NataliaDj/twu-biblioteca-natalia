@@ -4,6 +4,7 @@ import main.java.com.twu.biblioteca.Movie;
 import org.junit.Before;
 import org.junit.Test;
 
+import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.Assert.fail;
@@ -49,7 +50,7 @@ public class MovieTest {
     }
 
     @Test
-    public void constructMovieWith0RatingReturnsIllegalArgumetnException() {
+    public void constructMovieWith0RatingReturnsIllegalArgumentExceptionTest() {
         try {
             movie = new Movie(title, director, year, 0);
             fail();
@@ -59,12 +60,23 @@ public class MovieTest {
     }
 
     @Test
-    public void constructMovieWith11RatingReturnsIllegalArgumetnException() {
+    public void constructMovieWith11RatingReturnsIllegalArgumentExceptionTest() {
         try {
             movie = new Movie(title, director, year, 11);
             fail();
         } catch (IllegalArgumentException e) {
 
         }
+    }
+
+    @Test
+    public void getDetailsReturnsStringContainsAllDetailsTest() {
+        String details = movie.getDetails();
+        assertThat(details, containsString(title));
+        assertThat(details, containsString(director));
+        assertThat(details, containsString(String.valueOf(year)));
+        assertThat(details, containsString(String.valueOf(rating)));
+
+
     }
 }
