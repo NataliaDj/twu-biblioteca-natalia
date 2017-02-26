@@ -27,7 +27,6 @@ public class BibliotecaApp {
     public String getMenuOptionResult(String option) {
         Menu.Option chosenOption = Menu.toOption(option);
         if (chosenOption != null) {
-
             switch (chosenOption) {
                 case LIST_BOOKS:
                     return listAvailableBooks();
@@ -35,18 +34,11 @@ public class BibliotecaApp {
                     run = false;
                     return "";
                 case CHECKOUT:
-                    String result = "That book is not available.";
-                    int beginIndex = Menu.Option.CHECKOUT.length() + 1;
-                    if (option.length() > beginIndex) {
-                        result = this.checkoutBook(option.substring(beginIndex));
-                    }
-                    return result;
+                    String bookTitle = this.getCommandParam(option, Menu.Option.CHECKOUT);
+                    return this.checkoutBook(bookTitle);
                 case RETURN:
-                    result = "That is not a valid book to return.";
-                    beginIndex = Menu.Option.RETURN.length() + 1;
-                    if (option.length() > beginIndex)
-                        result = this.returnBook(option.substring(beginIndex));
-                    return result;
+                    bookTitle = this.getCommandParam(option, Menu.Option.RETURN);
+                    return this.returnBook(bookTitle);
             }
         }
         return "Select a valid option!";
@@ -92,6 +84,13 @@ public class BibliotecaApp {
         } else {
             return "That is not a valid book to return.";
         }
+    }
+
+    private String getCommandParam(String command, Menu.Option optionType) {
+        int beginIndex = optionType.length() + 1;
+        if (command.length() > beginIndex)
+            return command.substring(beginIndex);
+        return "";
     }
 
     private String listAvailableBooks() {
