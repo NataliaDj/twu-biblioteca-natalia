@@ -14,13 +14,16 @@ public class MovieTest {
     String title;
     String director;
     int year;
+    int rating;
     Movie movie;
 
     @Before
     public void setup() {
         title = "Sherlock Holmes: A Game of Shadows";
         director = "Guy Ritchie";
-        movie = new Movie(title, director, year);
+        year = 2011;
+        rating = 7;
+        movie = new Movie(title, director, year, rating);
     }
 
     @Test
@@ -37,5 +40,10 @@ public class MovieTest {
     @Test
     public void getYearReleasedReturnYearIntTest() {
         assertThat(movie.getYearReleased(), is (year));
+    }
+
+    @Test
+    public void getRatingReturnsRatingIntTest() {
+        assertThat(movie.getRating(), is(rating));
     }
 }
