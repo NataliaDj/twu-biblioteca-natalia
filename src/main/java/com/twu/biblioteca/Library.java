@@ -82,7 +82,7 @@ public class Library {
     }
 
     public List<Movie> getMoviesList() {
-        return new ArrayList<Movie>();
+        return this.movieList;
     }
 
 }
