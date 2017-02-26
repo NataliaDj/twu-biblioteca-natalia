@@ -112,4 +112,25 @@ public class BibliotecaAppTest {
         }
 
     }
+
+    @Test
+    public void getMenuOptionResultListMovieReturnsMovieDetailsStringTest() {
+        String title = "tangled";
+        String director = "Nathan Greno";
+        int yearReleased = 2010;
+        int rating = 8;
+        ArrayList<Movie> movies = new ArrayList<Movie>(
+                Arrays.asList(
+                        new Movie(title, director, yearReleased, rating)
+                )
+        );
+        Library lib = new Library(new ArrayList<Book>(), movies);
+        app = new BibliotecaApp(lib);
+
+        String result = app.getMenuOptionResult("List Books");
+        assertThat(result, containsString(title));
+        assertThat(result, containsString(director));
+        assertThat(result, containsString(String.valueOf(yearReleased)));
+        assertThat(result, containsString(String.valueOf(rating)));
+    }
 }
