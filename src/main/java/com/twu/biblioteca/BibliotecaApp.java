@@ -39,6 +39,8 @@ public class BibliotecaApp {
                 case RETURN:
                     bookTitle = this.getCommandParam(option, Menu.Option.RETURN);
                     return this.returnBook(bookTitle);
+                case LIST_MOVIES:
+                    return listAvailableMovies();
             }
         }
         return "Select a valid option!";
@@ -97,6 +99,14 @@ public class BibliotecaApp {
         String result = "";
         for (Book book : lib.getBookList()) {
             result += book.getDetails() + "\n";
+        }
+        return result.trim();
+    }
+
+    private String listAvailableMovies() {
+        String result = "";
+        for (Movie movie : lib.getMoviesList()) {
+            result += movie.getDetails() + "\n";
         }
         return result.trim();
     }
