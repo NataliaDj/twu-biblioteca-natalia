@@ -115,7 +115,7 @@ public class BibliotecaAppTest {
 
     @Test
     public void getMenuOptionResultListMovieReturnsMovieDetailsStringTest() {
-        String title = "tangled";
+        String title = "Tangled";
         String director = "Nathan Greno";
         int yearReleased = 2010;
         int rating = 8;
@@ -127,7 +127,7 @@ public class BibliotecaAppTest {
         Library lib = new Library(new ArrayList<Book>(), movies);
         app = new BibliotecaApp(lib);
 
-        String result = app.getMenuOptionResult("List Books");
+        String result = app.getMenuOptionResult("List Movies");
         assertThat(result, containsString(title));
         assertThat(result, containsString(director));
         assertThat(result, containsString(String.valueOf(yearReleased)));
