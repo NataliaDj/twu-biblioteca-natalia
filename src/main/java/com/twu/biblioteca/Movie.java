@@ -10,6 +10,8 @@ public class Movie {
     private int rating;
 
     public Movie(String title, String director, int year, int rating) {
+        if (rating < 1 || rating > 10)
+            throw new IllegalArgumentException("Invalid rating value");
         this.title = title;
         this.director = director;
         this.year = year;
