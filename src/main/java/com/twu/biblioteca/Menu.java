@@ -8,7 +8,9 @@ import java.util.List;
  */
 public class Menu {
     public enum Option {
-        LIST_BOOKS("List Books"), QUIT("Quit"), CHECKOUT("Checkout"), RETURN("Return");
+        LIST_BOOKS("List Books"), CHECKOUT("Checkout"), RETURN("Return"),
+        LIST_MOVIE("List Movies"),
+        QUIT("Quit");
         private String name;
         Option(String name) {
             this.name = name;

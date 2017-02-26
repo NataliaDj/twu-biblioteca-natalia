@@ -15,7 +15,8 @@ public class MenuTest {
 
     @Test
     public void getMenuOptionsContainsAllOptionString() {
-        MatcherAssert.assertThat(Menu.getMenuOptionsList(), hasItem("List Books"));
+        assertThat(Menu.getMenuOptionsList(), hasItem("List Books"));
+        assertThat(Menu.getMenuOptionsList(), hasItem("List Movies"));
         assertThat(Menu.getMenuOptionsList(), hasItem("Quit"));
         assertThat(Menu.getMenuOptionsList(), hasItem("Checkout"));
         assertThat(Menu.getMenuOptionsList(), hasItem("Return"));
@@ -24,6 +25,11 @@ public class MenuTest {
     @Test
     public void getOptionListBooksReturnsListBookOption() {
         assertThat(Menu.toOption("List Books"), is(Menu.Option.LIST_BOOKS));
+    }
+
+    @Test
+    public void getOptionListMoviesReturnsListMovieOption() {
+        assertThat(Menu.toOption("List Books"), is(Menu.Option.LIST_MOVIE));
     }
 
     @Test
