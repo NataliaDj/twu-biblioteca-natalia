@@ -23,27 +23,27 @@ public class MenuTest {
     }
 
     @Test
-    public void getOptionListBooksReturnsListBookOption() {
+    public void toOptionListBooksReturnsListBookOption() {
         assertThat(Menu.toOption("List Books"), is(Menu.Option.LIST_BOOKS));
     }
 
     @Test
-    public void getOptionListMoviesReturnsListMovieOption() {
-        assertThat(Menu.toOption("List Books"), is(Menu.Option.LIST_MOVIE));
+    public void toOptionListMoviesReturnsListMovieOption() {
+        assertThat(Menu.toOption("List Movies"), is(Menu.Option.LIST_MOVIES));
     }
 
     @Test
-    public void getOptionQuitReturnsQuitOption() {
+    public void toOptionQuitReturnsQuitOption() {
         assertThat(Menu.toOption("Quit"), is(Menu.Option.QUIT));
     }
 
     @Test
-    public void getOptionCheckoutTitleReturnsCheckoutOption() {
+    public void toOptionCheckoutTitleReturnsCheckoutOption() {
         assertThat(Menu.toOption("Checkout Book Title"), is(Menu.Option.CHECKOUT));
     }
 
     @Test
-    public void getOptionReturnTitleReturnsReturnOption() {
+    public void toOptionReturnTitleReturnsReturnOption() {
         assertThat(Menu.toOption("Return Book Title"), is(Menu.Option.RETURN));
     }
 }
