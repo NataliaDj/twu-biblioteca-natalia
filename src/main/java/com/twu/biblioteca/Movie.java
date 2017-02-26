@@ -44,4 +44,9 @@ public class Movie {
 
         return result;
     }
+
+    @Override
+    public String toString() {
+        return "Movie " + this.title;
+    }
 }
