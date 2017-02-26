@@ -70,4 +70,8 @@ public class Library {
         return false;
     }
 
+    public List<Movie> getMoviesList() {
+        return new ArrayList<Movie>();
+    }
+
 }
