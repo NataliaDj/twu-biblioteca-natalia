@@ -85,4 +85,23 @@ public class Library {
         return this.movieList;
     }
 
+    public void addMovie(Movie movie) {
+        this.movieList.add(movie);
+    }
+
+    public boolean checkoutMovie(String title) {
+        int i = 0;
+        for (; i < this.movieList.size(); i++) {
+            if (this.movieList.get(i).getTitle().equals(title)) {
+                break;
+            }
+        }
+
+        if (i < this.movieList.size()) {
+            this.movieList.remove(i);
+            return true;
+        }
+        return false;
+    }
+
 }
