@@ -6,6 +6,7 @@ import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.Assert.fail;
 
 /**
  * Created by nataliadjohari on 26/02/2017.
@@ -45,5 +46,25 @@ public class MovieTest {
     @Test
     public void getRatingReturnsRatingIntTest() {
         assertThat(movie.getRating(), is(rating));
+    }
+
+    @Test
+    public void constructMovieWith0RatingReturnsIllegalArgumetnException() {
+        try {
+            movie = new Movie(title, director, year, 0);
+            fail();
+        } catch (IllegalArgumentException e) {
+
+        }
+    }
+
+    @Test
+    public void constructMovieWith11RatingReturnsIllegalArgumetnException() {
+        try {
+            movie = new Movie(title, director, year, 11);
+            fail();
+        } catch (IllegalArgumentException e) {
+
+        }
     }
 }
