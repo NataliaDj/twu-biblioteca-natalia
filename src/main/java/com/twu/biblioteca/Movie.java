@@ -33,4 +33,15 @@ public class Movie {
     public int getRating() {
         return this.rating;
     }
+
+    public String getDetails() {
+        String result = "";
+
+        result += this.title + "\n";
+        result += "Director: " + this.director + "\n";
+        result += "Year Released: " + this.year + "\n";
+        result += "Rating: " + this.rating + "\n";
+
+        return result;
+    }
 }
