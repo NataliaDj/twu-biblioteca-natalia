@@ -24,7 +24,7 @@ public class Menu {
         }
     };
 
-    public List<String> getMenuOptionsList() {
+    public static List<String> getMenuOptionsList() {
         List<String> options = new ArrayList<String>();
         for (Option o: Option.values()) {
             options.add(o.toString());

@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 public class BibliotecaApp {
     private Library lib;
-    private Menu menu;
     private boolean run = true;
 
     public static void main(String[] args) {
@@ -14,7 +13,6 @@ public class BibliotecaApp {
 
     public BibliotecaApp(Library library) {
         this.lib = library;
-        this.menu = new Menu();
 
     }
 
@@ -73,7 +71,7 @@ public class BibliotecaApp {
     public String viewMenuOptions() {
         String result = "Options:\n";
         int counter = 1;
-        for (String option: menu.getMenuOptionsList()) {
+        for (String option: Menu.getMenuOptionsList()) {
             result += counter + ". " +option + "\n";
             counter++;
         }
