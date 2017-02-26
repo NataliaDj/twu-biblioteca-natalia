@@ -118,4 +118,17 @@ public class LibraryTest {
     public void getDefaultMoviesListReturnNotEmptyList() {
         assertThat(lib.getMoviesList().size(), not(is(0)));
     }
+
+    @Test
+    public void checkoutMovieRemoveMovieFromMovieListTest() {
+        String title = "Tangled";
+        String director = "Nathan Greno";
+        int yearReleased = 2010;
+        int rating = 8;
+        Movie movie = new Movie(title, director, yearReleased, rating);
+        lib.addMovie(movie);
+        lib.checkoutMovie(title);
+        assertThat(lib.getMoviesList(), not(hasItem(movie)));
+
+    }
 }
