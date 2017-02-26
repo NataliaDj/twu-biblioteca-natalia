@@ -106,4 +106,15 @@ public class LibraryTest {
     public void returnBookUnsuccessfullyReturnFalse() {
         assertThat(lib.returnBook("Three Blind Mice"), is(false));
     }
+
+    @Test
+    public void getMoviesListReturns0ForEmptyLibraryTest() {
+        lib = new Library(new ArrayList<Book>());
+        assertThat(lib.getMoviesList().size(), is(0));
+    }
+
+    @Test
+    public void getDefaultMoviesListReturnNotEmptyList() {
+        assertThat(lib.getMoviesList().size(), not(is(0)));
+    }
 }
