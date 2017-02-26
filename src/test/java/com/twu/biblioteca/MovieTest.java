@@ -13,13 +13,14 @@ import static org.hamcrest.MatcherAssert.assertThat;
 public class MovieTest {
     String title;
     String director;
+    int year;
     Movie movie;
 
     @Before
     public void setup() {
         title = "Sherlock Holmes: A Game of Shadows";
         director = "Guy Ritchie";
-        movie = new Movie(title, director);
+        movie = new Movie(title, director, year);
     }
 
     @Test
@@ -31,5 +32,10 @@ public class MovieTest {
     public void getDirectorReturnsDirectorStringTest() {
         assertThat(movie.getDirector(), is(director));
 
+    }
+
+    @Test
+    public void getYearReleasedReturnYearIntTest() {
+        assertThat(movie.getYearReleased(), is (year));
     }
 }
