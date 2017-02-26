@@ -1,4 +1,4 @@
-package com.twu.biblioteca;
+package main.java.com.twu.biblioteca;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -12,8 +12,8 @@ public class Library {
     private List<Book> checkedoutList;
 
     public Library(List<Book> booksList) {
-        bookList = booksList;
-        checkedoutList = new ArrayList<Book>();
+        this.bookList = booksList;
+        this.checkedoutList = new ArrayList<Book>();
     }
 
     public static Library defaultLibrary() {

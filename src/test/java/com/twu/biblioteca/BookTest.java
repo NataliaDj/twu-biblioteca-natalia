@@ -1,5 +1,6 @@
-package com.twu.biblioteca;
+package test.java.com.twu.biblioteca;
 
+import main.java.com.twu.biblioteca.Book;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.containsString;

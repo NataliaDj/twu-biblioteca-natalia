@@ -1,6 +1,7 @@
-package com.twu.biblioteca;
+package test.java.com.twu.biblioteca;
 
-import org.junit.Before;
+import main.java.com.twu.biblioteca.Menu;
+import org.hamcrest.MatcherAssert;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.hasItem;
@@ -14,7 +15,7 @@ public class MenuTest {
 
     @Test
     public void getMenuOptionsContainsAllOptionString() {
-        assertThat(Menu.getMenuOptionsList(), hasItem("List Books"));
+        MatcherAssert.assertThat(Menu.getMenuOptionsList(), hasItem("List Books"));
         assertThat(Menu.getMenuOptionsList(), hasItem("Quit"));
         assertThat(Menu.getMenuOptionsList(), hasItem("Checkout"));
         assertThat(Menu.getMenuOptionsList(), hasItem("Return"));

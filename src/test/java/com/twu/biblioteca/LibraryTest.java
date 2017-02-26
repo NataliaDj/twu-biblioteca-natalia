@@ -1,5 +1,7 @@
-package com.twu.biblioteca;
+package test.java.com.twu.biblioteca;
 
+import main.java.com.twu.biblioteca.Book;
+import main.java.com.twu.biblioteca.Library;
 import org.junit.Before;
 import org.junit.Test;
 

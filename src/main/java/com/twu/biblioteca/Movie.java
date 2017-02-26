@@ -1,4 +1,4 @@
-package com.twu.biblioteca;
+package main.java.com.twu.biblioteca;
 
 /**
  * Created by nataliadjohari on 26/02/2017.
