@@ -2,6 +2,7 @@ package test.java.com.twu.biblioteca;
 
 import main.java.com.twu.biblioteca.Book;
 import main.java.com.twu.biblioteca.Library;
+import main.java.com.twu.biblioteca.Movie;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -26,7 +27,7 @@ public class LibraryTest {
 
     @Test
     public void getBookListReturns0ForEmptyLibraryTest() {
-        lib = new Library(new ArrayList<Book>());
+        lib = new Library(new ArrayList<Book>(), new ArrayList<Movie>());
         assertThat(lib.getBookList().size(), is(0));
     }
 
@@ -109,7 +110,7 @@ public class LibraryTest {
 
     @Test
     public void getMoviesListReturns0ForEmptyLibraryTest() {
-        lib = new Library(new ArrayList<Book>());
+        lib = new Library(new ArrayList<Book>(), new ArrayList<Movie>());
         assertThat(lib.getMoviesList().size(), is(0));
     }
 

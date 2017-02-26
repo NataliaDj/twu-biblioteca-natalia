@@ -1,9 +1,6 @@
 package test.java.com.twu.biblioteca;
 
-import main.java.com.twu.biblioteca.BibliotecaApp;
-import main.java.com.twu.biblioteca.Book;
-import main.java.com.twu.biblioteca.Library;
-import main.java.com.twu.biblioteca.Menu;
+import main.java.com.twu.biblioteca.*;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -40,7 +37,7 @@ public class BibliotecaAppTest {
                         new Book(title, author, yearPublished)
                 )
         );
-        Library lib = new Library(books);
+        Library lib = new Library(books, new ArrayList<Movie>());
         app = new BibliotecaApp(lib);
 
         String result = app.getMenuOptionResult("List Books");

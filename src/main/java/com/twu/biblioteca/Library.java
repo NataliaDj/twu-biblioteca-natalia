@@ -10,10 +10,12 @@ import java.util.List;
 public class Library {
     private List<Book> bookList;
     private List<Book> checkedoutList;
+    private List<Movie> movieList;
 
-    public Library(List<Book> booksList) {
+    public Library(List<Book> booksList, List<Movie> moviesList) {
         this.bookList = booksList;
         this.checkedoutList = new ArrayList<Book>();
+        this.movieList = moviesList;
     }
 
     public static Library defaultLibrary() {
@@ -28,7 +30,16 @@ public class Library {
                 )
         );
 
-        return new Library(booksList);
+        List<Movie> moviesList = new ArrayList<Movie>(
+                Arrays.asList(
+                        new Movie("Jaws", "Steven Spielberg", 1975, 8),
+                        new Movie("The Lion King", "Roger Allers", 1994, 9),
+                        new Movie("Letters To Juliet", "Gary Winick", 2010, 7),
+                        new Movie("Imitation Game", "Morten Tyldum", 2014, 8)
+                )
+        );
+
+        return new Library(booksList, moviesList);
     }
 
     public List<Book> getBookList() {
