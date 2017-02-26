@@ -51,15 +51,10 @@ public class Library {
     }
 
     public boolean checkoutBook(String title) {
-        int i = 0;
-        for (; i < this.bookList.size(); i++) {
-            if (this.bookList.get(i).getTitle().equals(title)) {
-                break;
-            }
-        }
+        int pos = this.getTitlePosition(title, this.bookList);
 
-        if (i < this.bookList.size()) {
-            Book book = this.bookList.remove(i);
+        if (pos < this.bookList.size()) {
+            Book book = this.bookList.remove(pos);
             this.checkedoutList.add(book);
             return true;
         }
@@ -67,14 +62,10 @@ public class Library {
     }
 
     public boolean returnBook(String title) {
-        int i = 0;
-        for (; i < this.checkedoutList.size(); i++) {
-            if (this.checkedoutList.get(i).getTitle().equals(title))
-                break;
-        }
+        int pos = this.getTitlePosition(title, this.checkedoutList);
 
-        if (i < this.checkedoutList.size()) {
-            Book book = this.checkedoutList.remove(i);
+        if (pos < this.checkedoutList.size()) {
+            Book book = this.checkedoutList.remove(pos);
             this.bookList.add(book);
             return true;
         }
@@ -90,18 +81,25 @@ public class Library {
     }
 
     public boolean checkoutMovie(String title) {
+        int pos = getTitlePosition(title, this.movieList);
+
+        if (pos < this.movieList.size()) {
+            this.movieList.remove(pos);
+            return true;
+        }
+        return false;
+    }
+
+    public int getTitlePosition(String title, List<? extends LibraryItem> list) {
         int i = 0;
-        for (; i < this.movieList.size(); i++) {
-            if (this.movieList.get(i).getTitle().equals(title)) {
+        for (; i < list.size(); i++) {
+            if (list.get(i).getTitle().equals(title)) {
                 break;
             }
         }
 
-        if (i < this.movieList.size()) {
-            this.movieList.remove(i);
-            return true;
-        }
-        return false;
+        return i;
+
     }
 
 }

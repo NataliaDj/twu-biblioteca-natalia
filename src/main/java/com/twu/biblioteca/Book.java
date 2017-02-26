@@ -3,13 +3,12 @@ package main.java.com.twu.biblioteca;
 /**
  * Created by nataliadjohari on 21/02/2017.
  */
-public class Book {
-    private String title;
+public class Book extends LibraryItem {
     private String author;
     private int yearPublished;
 
     public Book(String title, String author, int yearPublished) {
-        this.title = title;
+        super(title);
         this.author = author;
         this.yearPublished = yearPublished;
     }
@@ -20,10 +19,6 @@ public class Book {
 
     public Book() {
         this("");
-    }
-
-    public String getTitle() {
-        return title;
     }
 
     public void setAuthor(String author) {
