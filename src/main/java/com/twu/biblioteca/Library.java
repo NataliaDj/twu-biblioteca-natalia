@@ -9,12 +9,13 @@ import java.util.List;
  */
 public class Library {
     private List<Book> bookList;
-    private List<Book> checkedoutList;
+    private List<Book> checkedoutBookList;
     private List<Movie> movieList;
+    private List<Movie> checkedoutMovieList;
 
     public Library(List<Book> booksList, List<Movie> moviesList) {
         this.bookList = booksList;
-        this.checkedoutList = new ArrayList<Book>();
+        this.checkedoutBookList = new ArrayList<Book>();
         this.movieList = moviesList;
     }
 
@@ -55,17 +56,17 @@ public class Library {
 
         if (pos < this.bookList.size()) {
             Book book = this.bookList.remove(pos);
-            this.checkedoutList.add(book);
+            this.checkedoutBookList.add(book);
             return true;
         }
         return false;
     }
 
     public boolean returnBook(String title) {
-        int pos = this.getTitlePosition(title, this.checkedoutList);
+        int pos = this.getTitlePosition(title, this.checkedoutBookList);
 
-        if (pos < this.checkedoutList.size()) {
-            Book book = this.checkedoutList.remove(pos);
+        if (pos < this.checkedoutBookList.size()) {
+            Book book = this.checkedoutBookList.remove(pos);
             this.bookList.add(book);
             return true;
         }
@@ -88,6 +89,10 @@ public class Library {
             return true;
         }
         return false;
+    }
+
+    public boolean returnMovie(String title) {
+        return true;
     }
 
     public int getTitlePosition(String title, List<? extends LibraryItem> list) {

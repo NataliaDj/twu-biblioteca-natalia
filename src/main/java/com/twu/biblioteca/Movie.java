@@ -44,4 +44,15 @@ public class Movie extends LibraryItem {
     public String toString() {
         return "Movie " + this.title;
     }
+
+    public boolean equals(Movie movie) {
+        boolean result = true;
+
+        result &= title.equals(movie.getTitle());
+        result &= director.equals(movie.getDirector());
+        result &= year == movie.getYearReleased();
+        result &= rating == movie.getRating();
+
+        return result;
+    }
 }
