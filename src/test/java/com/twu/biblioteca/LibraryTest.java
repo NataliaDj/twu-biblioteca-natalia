@@ -18,11 +18,17 @@ import static org.hamcrest.core.IsNot.not;
  * Created by nataliadjohari on 21/02/2017.
  */
 public class LibraryTest {
+    Movie movie;
     Library lib;
 
     @Before
     public void setup() {
-        lib = Library.defaultLibrary();
+        this.lib = Library.defaultLibrary();
+        String title = "Tangled";
+        String director = "Nathan Greno";
+        int yearReleased = 2010;
+        int rating = 8;
+        this.movie = new Movie(title, director, yearReleased, rating);
     }
 
     @Test
@@ -121,14 +127,42 @@ public class LibraryTest {
 
     @Test
     public void checkoutMovieRemoveMovieFromMovieListTest() {
-        String title = "Tangled";
-        String director = "Nathan Greno";
-        int yearReleased = 2010;
-        int rating = 8;
-        Movie movie = new Movie(title, director, yearReleased, rating);
         lib.addMovie(movie);
-        lib.checkoutMovie(title);
+        lib.checkoutMovie(movie.getTitle());
         assertThat(lib.getMoviesList(), not(hasItem(movie)));
 
     }
+
+    @Test
+    public void checkoutMovieSuccessfullyReturnsTrue() {
+        lib.addMovie(movie);
+        assertThat(lib.checkoutBook(movie.getTitle()), is(true));
+    }
+
+
+    @Test
+    public void checkoutMovieUnsuccessfullyReturnsFalseTest() {
+        assertThat(lib.checkoutBook(movie.getTitle()), is(false));
+    }
+
+    @Test
+    public void returnMovieInsertsMovieToMovieListTest() {
+        lib.addMovie(movie);
+        lib.checkoutMovie(movie.getTitle());
+        lib.returnMovie(movie.getTitle());
+        assertThat(lib.getBookList(), hasItem(movie));
+    }
+
+    @Test
+    public void returnMovieSuccessfullyReturnsTrue() {
+        lib.addMovie(movie);
+        lib.checkoutBook(movie.getTitle());
+        assertThat(lib.returnMovie(movie.getTitle()), is(true));
+    }
+
+    @Test
+    public void returnMovieUnsuccessfullyReturnFalse() {
+        assertThat(lib.returnMovie(movie.getTitle()), is(false));
+    }
+
 }
