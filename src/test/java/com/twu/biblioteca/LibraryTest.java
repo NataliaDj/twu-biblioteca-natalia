@@ -150,7 +150,7 @@ public class LibraryTest {
         lib.addMovie(movie);
         lib.checkoutMovie(movie.getTitle());
         lib.returnMovie(movie.getTitle());
-        assertThat(lib.getBookList(), hasItem(movie));
+        assertThat(lib.getMoviesList(), hasItem(movie));
     }
 
     @Test
