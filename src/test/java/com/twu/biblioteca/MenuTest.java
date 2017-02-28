@@ -39,11 +39,11 @@ public class MenuTest {
 
     @Test
     public void toOptionCheckoutTitleReturnsCheckoutOption() {
-        assertThat(Menu.toOption("Checkout Book Title"), is(Menu.Option.CHECKOUT));
+        assertThat(Menu.toOption("Checkout Book Title"), is(Menu.Option.CHECKOUT_BOOK));
     }
 
     @Test
     public void toOptionReturnTitleReturnsReturnOption() {
-        assertThat(Menu.toOption("Return Book Title"), is(Menu.Option.RETURN));
+        assertThat(Menu.toOption("Return Book Title"), is(Menu.Option.RETURN_BOOK));
     }
 }

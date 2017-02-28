@@ -33,11 +33,11 @@ public class BibliotecaApp {
                 case QUIT:
                     run = false;
                     return "";
-                case CHECKOUT:
-                    String bookTitle = this.getCommandParam(option, Menu.Option.CHECKOUT);
+                case CHECKOUT_BOOK:
+                    String bookTitle = this.getCommandParam(option, Menu.Option.CHECKOUT_BOOK);
                     return this.checkoutBook(bookTitle);
-                case RETURN:
-                    bookTitle = this.getCommandParam(option, Menu.Option.RETURN);
+                case RETURN_BOOK:
+                    bookTitle = this.getCommandParam(option, Menu.Option.RETURN_BOOK);
                     return this.returnBook(bookTitle);
                 case LIST_MOVIES:
                     return listAvailableMovies();
