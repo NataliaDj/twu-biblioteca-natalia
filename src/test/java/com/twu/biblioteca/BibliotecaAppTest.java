@@ -58,38 +58,38 @@ public class BibliotecaAppTest {
 
     @Test
     public void getMenuOptionResultCheckoutSuccessfullyReturnsThankYouMessage() {
-        assertThat(app.getMenuOptionResult("Checkout Hamlet"), is("Thank you! Enjoy the book"));
+        assertThat(app.getMenuOptionResult("Checkout Book Hamlet"), is("Thank you! Enjoy the book"));
     }
 
     @Test
     public void getMenuOptionResultCheckoutNoBookSpecifiedReturnsInvalidMessage() {
-        assertThat(app.getMenuOptionResult("Checkout"), is("That book is not available."));
+        assertThat(app.getMenuOptionResult("Checkout Book"), is("That book is not available."));
     }
 
     @Test
     public void getMenuOptionResultCheckoutUnsuccessfullyReturnsUnavailableMessage() {
-        assertThat(app.getMenuOptionResult("Checkout Tarzan"), is("That book is not available."));
+        assertThat(app.getMenuOptionResult("Checkout Book Tarzan"), is("That book is not available."));
     }
 
     @Test
     public void getMenuOptionResultReturnSuccessfullyReturnsThankYouMessage() {
-        app.getMenuOptionResult("Checkout Hamlet");
-        assertThat(app.getMenuOptionResult("Return Hamlet"), is("Thank you for returning the book."));
+        app.getMenuOptionResult("Checkout Book Hamlet");
+        assertThat(app.getMenuOptionResult("Return Book Hamlet"), is("Thank you for returning the book."));
     }
 
     @Test
     public void getMenuOptionResultReturnNoBookSpecifiedReturnsInvalidBookMessage() {
-        assertThat(app.getMenuOptionResult("Return"), is("That is not a valid book to return."));
+        assertThat(app.getMenuOptionResult("Return Book"), is("That is not a valid book to return."));
     }
 
     @Test
     public void getMenuOptionResultReturnUnlistedBookReturnsInvalidBookMessage() {
-        assertThat(app.getMenuOptionResult("Return Tarzan"), is("That is not a valid book to return."));
+        assertThat(app.getMenuOptionResult("Return Book Tarzan"), is("That is not a valid book to return."));
     }
 
     @Test
     public void getMenuOptionResultReturnNonCheckedoutBookReturnsInvalidBookMessage() {
-        assertThat(app.getMenuOptionResult("Return Hamlet"), is("That is not a valid book to return."));
+        assertThat(app.getMenuOptionResult("Return Book Hamlet"), is("That is not a valid book to return."));
     }
 
     @Test

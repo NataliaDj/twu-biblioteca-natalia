@@ -18,8 +18,8 @@ public class MenuTest {
         assertThat(Menu.getMenuOptionsList(), hasItem("List Books"));
         assertThat(Menu.getMenuOptionsList(), hasItem("List Movies"));
         assertThat(Menu.getMenuOptionsList(), hasItem("Quit"));
-        assertThat(Menu.getMenuOptionsList(), hasItem("Checkout"));
-        assertThat(Menu.getMenuOptionsList(), hasItem("Return"));
+        assertThat(Menu.getMenuOptionsList(), hasItem("Checkout Book"));
+        assertThat(Menu.getMenuOptionsList(), hasItem("Return Book"));
     }
 
     @Test
