@@ -136,13 +136,13 @@ public class LibraryTest {
     @Test
     public void checkoutMovieSuccessfullyReturnsTrue() {
         lib.addMovie(movie);
-        assertThat(lib.checkoutBook(movie.getTitle()), is(true));
+        assertThat(lib.checkoutMovie(movie.getTitle()), is(true));
     }
 
 
     @Test
     public void checkoutMovieUnsuccessfullyReturnsFalseTest() {
-        assertThat(lib.checkoutBook(movie.getTitle()), is(false));
+        assertThat(lib.checkoutMovie(movie.getTitle()), is(false));
     }
 
     @Test
@@ -156,7 +156,7 @@ public class LibraryTest {
     @Test
     public void returnMovieSuccessfullyReturnsTrue() {
         lib.addMovie(movie);
-        lib.checkoutBook(movie.getTitle());
+        lib.checkoutMovie(movie.getTitle());
         assertThat(lib.returnMovie(movie.getTitle()), is(true));
     }
 
