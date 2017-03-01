@@ -228,7 +228,7 @@ public class BibliotecaAppTest {
     public void ListCheckedOutItemsContainsCheckedOutItemDetails() {
         app.login(defaultUser.getLibraryNumber(), defaultUser.getPassword());
         app.getMenuOptionResult("Checkout Book Hamlet");
-        app.getMenuOptionResult("Checkout Book Jaws");
+        app.getMenuOptionResult("Checkout Movie Jaws");
 
         String result = app.listCheckedOut();
         assertThat(result, containsString(defaultUser.getLibraryNumber()));

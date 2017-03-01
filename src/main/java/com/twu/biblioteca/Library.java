@@ -139,4 +139,20 @@ public class Library {
         return null;
     }
 
+    public String getCheckedoutBooksDetails() {
+        String result = "";
+        for (Book b: this.checkedoutBookList.keySet()) {
+            result += b.getTitle() + " - " + this.checkedoutBookList.get(b) + "\n";
+        }
+        return result;
+    }
+
+    public String getCheckedoutMoviesDetails() {
+        String result = "";
+        for (Movie m: this.checkedoutMovieList.keySet()) {
+            result += m.getTitle() + " - " + this.checkedoutMovieList.get(m) + "\n";
+        }
+        return result;
+    }
+
 }
