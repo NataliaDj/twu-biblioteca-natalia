@@ -208,4 +208,11 @@ public class BibliotecaAppTest {
         String message = app.login(defaultUser.getLibraryNumber(), defaultUser.getPassword());
         assertThat(message, is("Welcome "));
     }
+
+    @Test
+    public void isLoggedInReturnsFalseAfterLogout() {
+        app.login(defaultUser.getLibraryNumber(), defaultUser.getPassword());
+        app.logout();
+        assertThat(app.isLoggedIn(), is(false));
+    }
 }
