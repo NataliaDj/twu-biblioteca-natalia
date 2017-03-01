@@ -40,6 +40,18 @@ public class BibliotecaApp {
                     return this.returnBook(param);
                 case LIST_MOVIES:
                     return listAvailableMovies();
+                case CHECKOUT_MOVIE:
+                    if (lib.checkoutMovie(param)) {
+                        return "Thank you! Enjoy the movie";
+                    } else {
+                        return "That movie is not available.";
+                    }
+                case RETURN_MOVIE:
+                    if (lib.returnMovie(param)) {
+                        return "Thank you for returning the movie.";
+                    } else {
+                        return "That is not a valid movie to return.";
+                    }
 
             }
         }
