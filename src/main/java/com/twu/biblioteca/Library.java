@@ -131,4 +131,14 @@ public class Library {
         return this.usersList;
     }
 
+    public User getUser(String librarynum, String password) {
+        for (User u: this.usersList) {
+            if (librarynum.equals(u.getLibraryNumber()) &&
+                    password.equals(u.getPassword())) {
+                return u;
+            }
+        }
+        return null;
+    }
+
 }
