@@ -59,37 +59,44 @@ public class BibliotecaAppTest {
 
     @Test
     public void getMenuOptionResultCheckoutBookSuccessfullyReturnsThankYouMessage() {
+        app.login(defaultUser.getLibraryNumber(), defaultUser.getPassword());
         assertThat(app.getMenuOptionResult("Checkout Book Hamlet"), is("Thank you! Enjoy the book"));
     }
 
     @Test
     public void getMenuOptionResultCheckoutBookNoBookSpecifiedReturnsInvalidMessage() {
+        app.login(defaultUser.getLibraryNumber(), defaultUser.getPassword());
         assertThat(app.getMenuOptionResult("Checkout Book"), is("That book is not available."));
     }
 
     @Test
     public void getMenuOptionResultCheckoutBookUnsuccessfullyReturnsUnavailableMessage() {
+        app.login(defaultUser.getLibraryNumber(), defaultUser.getPassword());
         assertThat(app.getMenuOptionResult("Checkout Book Tarzan"), is("That book is not available."));
     }
 
     @Test
     public void getMenuOptionResultReturnBookSuccessfullyReturnsThankYouMessage() {
+        app.login(defaultUser.getLibraryNumber(), defaultUser.getPassword());
         app.getMenuOptionResult("Checkout Book Hamlet");
         assertThat(app.getMenuOptionResult("Return Book Hamlet"), is("Thank you for returning the book."));
     }
 
     @Test
     public void getMenuOptionResultReturnBookNoBookSpecifiedReturnsInvalidBookMessage() {
+        app.login(defaultUser.getLibraryNumber(), defaultUser.getPassword());
         assertThat(app.getMenuOptionResult("Return Book"), is("That is not a valid book to return."));
     }
 
     @Test
     public void getMenuOptionResultReturnBookUnlistedBookReturnsInvalidBookMessage() {
+        app.login(defaultUser.getLibraryNumber(), defaultUser.getPassword());
         assertThat(app.getMenuOptionResult("Return Book Tarzan"), is("That is not a valid book to return."));
     }
 
     @Test
     public void getMenuOptionResultReturnBookNonCheckedoutBookReturnsInvalidBookMessage() {
+        app.login(defaultUser.getLibraryNumber(), defaultUser.getPassword());
         assertThat(app.getMenuOptionResult("Return Book Hamlet"), is("That is not a valid book to return."));
     }
 
@@ -137,37 +144,44 @@ public class BibliotecaAppTest {
 
     @Test
     public void getMenuOptionResultCheckoutMovieSuccessfullyReturnsThankYouMessage() {
+        app.login(defaultUser.getLibraryNumber(), defaultUser.getPassword());
         assertThat(app.getMenuOptionResult("Checkout Movie Jaws"), is("Thank you! Enjoy the movie"));
     }
 
     @Test
     public void getMenuOptionResultCheckoutMovieNoMovieSpecifiedReturnsInvalidMessage() {
+        app.login(defaultUser.getLibraryNumber(), defaultUser.getPassword());
         assertThat(app.getMenuOptionResult("Checkout Movie"), is("That movie is not available."));
     }
 
     @Test
     public void getMenuOptionResultCheckoutMovieUnsuccessfullyReturnsUnavailableMessage() {
+        app.login(defaultUser.getLibraryNumber(), defaultUser.getPassword());
         assertThat(app.getMenuOptionResult("Checkout Movie Tarzan"), is("That movie is not available."));
     }
 
     @Test
     public void getMenuOptionResultReturnMovieSuccessfullyReturnsThankYouMessage() {
+        app.login(defaultUser.getLibraryNumber(), defaultUser.getPassword());
         app.getMenuOptionResult("Checkout Movie Jaws");
         assertThat(app.getMenuOptionResult("Return Movie Jaws"), is("Thank you for returning the movie."));
     }
 
     @Test
     public void getMenuOptionResultReturnMovieNoMovieSpecifiedReturnsInvalidMovieMessage() {
+        app.login(defaultUser.getLibraryNumber(), defaultUser.getPassword());
         assertThat(app.getMenuOptionResult("Return Movie"), is("That is not a valid movie to return."));
     }
 
     @Test
     public void getMenuOptionResultReturnMovieUnlistedMovieReturnsInvalidBookMessage() {
+        app.login(defaultUser.getLibraryNumber(), defaultUser.getPassword());
         assertThat(app.getMenuOptionResult("Return Movie Tarzan"), is("That is not a valid movie to return."));
     }
 
     @Test
     public void getMenuOptionResultReturnMovieNonCheckedoutMovieReturnsInvalidBookMessage() {
+        app.login(defaultUser.getLibraryNumber(), defaultUser.getPassword());
         assertThat(app.getMenuOptionResult("Return Movie Jaws"), is("That is not a valid movie to return."));
     }
 
