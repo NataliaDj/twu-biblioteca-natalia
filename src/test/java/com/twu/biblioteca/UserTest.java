@@ -10,20 +10,20 @@ import static org.hamcrest.core.Is.is;
  * Created by ndjohari on 1/3/17.
  */
 public class UserTest {
-    String username;
+    String librarynum;
     String password;
     User user;
 
     @Before
     public void setup() {
-        username = "user";
+        librarynum = "user";
         password = "pass";
-        user = new User(username, password);
+        user = new User(librarynum, password);
     }
 
     @Test
     public void getUsernameReturnsUsernameString() {
-        assertThat(user.getUsername(), is(username));
+        assertThat(user.getLibraryNumber(), is(librarynum));
     }
 
     @Test
@@ -33,7 +33,7 @@ public class UserTest {
 
     @Test
     public void equalWithOtherUserWithSameUsernamAndPasswordReturnsTrue() {
-        User user2 = new User(username, password);
+        User user2 = new User(librarynum, password);
         assertThat(user.equals(user2), is(true));
     }
 }

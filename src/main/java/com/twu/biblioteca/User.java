@@ -4,16 +4,16 @@ package com.twu.biblioteca;
  * Created by ndjohari on 1/3/17.
  */
 public class User {
-    private String username;
+    private String librarynum;
     private String password;
 
-    public User(String username, String password) {
-        this.username = username;
+    public User(String librarynum, String password) {
+        this.librarynum = librarynum;
         this.password = password;
     }
 
-    public String getUsername() {
-        return this.username;
+    public String getLibraryNumber() {
+        return this.librarynum;
     }
 
     public String getPassword() {
@@ -34,7 +34,7 @@ public class User {
 
         boolean result = true;
 
-        result &= username.equals(otherUser.getUsername());
+        result &= librarynum.equals(otherUser.getLibraryNumber());
         result &= password.equals(otherUser.getPassword());
 
         return result;
