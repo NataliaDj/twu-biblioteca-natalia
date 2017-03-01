@@ -113,12 +113,20 @@ public class BibliotecaAppTest {
     }
 
     @Test
-    public void viewMenuOptionsContainMenuItems() {
+    public void viewMenuOptionsContainBasicMenuItems() {
+        String viewOptions = app.viewMenuOptions();
+        for (String option: Menu.getBasicMenuOptionsList()) {
+            assertThat(viewOptions, containsString(option));
+        }
+    }
+
+    @Test
+    public void viewMenuOptionsAfterLoginContainFullMenuItems() {
+        app.login(defaultUser.getLibraryNumber(), defaultUser.getPassword());
         String viewOptions = app.viewMenuOptions();
         for (String option: Menu.getFullMenuOptionsList()) {
             assertThat(viewOptions, containsString(option));
         }
-
     }
 
     @Test

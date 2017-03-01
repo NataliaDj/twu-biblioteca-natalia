@@ -53,6 +53,8 @@ public class BibliotecaApp {
                     return this.returnMovie(param);
                 case LOGIN:
                     return this.login(param);
+                case LOGOUT:
+                    return this.logout();
 
             }
         }
@@ -174,7 +176,7 @@ public class BibliotecaApp {
         String[] params = credentials.split(" ");
         String libraryNum = params[0];
         String password = "";
-        
+
         try {
             password = params[1];
         } catch (Exception e) {
@@ -191,5 +193,10 @@ public class BibliotecaApp {
         } else {
             return "Login failed. Please try again";
         }
+    }
+
+    public String logout() {
+        this.user = null;
+        return "Logout Successful";
     }
 }
