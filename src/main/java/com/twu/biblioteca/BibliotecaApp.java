@@ -100,7 +100,7 @@ public class BibliotecaApp {
     }
 
     private String checkoutBook(String title) {
-        if (lib.checkoutBook(title)) {
+        if (lib.checkoutBook(title, user.getLibraryNumber())) {
             return checkoutSuccessfulMessage("book");
         } else {
             return checkoutFailMessage("book");
@@ -116,7 +116,7 @@ public class BibliotecaApp {
     }
 
     private String checkoutMovie(String title) {
-        if (lib.checkoutMovie(title)) {
+        if (lib.checkoutMovie(title, user.getLibraryNumber())) {
             return checkoutSuccessfulMessage("movie");
         } else {
             return checkoutFailMessage("movie");

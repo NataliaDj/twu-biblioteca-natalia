@@ -1,24 +1,22 @@
 package com.twu.biblioteca;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by nataliadjohari on 21/02/2017.
  */
 public class Library {
     private List<Book> bookList;
-    private List<Book> checkedoutBookList;
+    private Map<Book, String> checkedoutBookList;
     private List<Movie> movieList;
-    private List<Movie> checkedoutMovieList;
+    private Map<Movie, String> checkedoutMovieList;
     private List<User> usersList;
 
     public Library(List<Book> booksList, List<Movie> moviesList, List<User> usersList) {
         this.bookList = booksList;
-        this.checkedoutBookList = new ArrayList<Book>();
+        this.checkedoutBookList = new HashMap<Book, String>();
         this.movieList = moviesList;
-        this.checkedoutMovieList = new ArrayList<Movie>();
+        this.checkedoutMovieList = new HashMap<Movie, String>();
         this.usersList = usersList;
     }
 
@@ -63,24 +61,24 @@ public class Library {
         this.bookList.add(book);
     }
 
-    public boolean checkoutBook(String title) {
+    public boolean checkoutBook(String title, String libraryNum) {
         int pos = this.getTitlePosition(title, this.bookList);
 
         if (pos < this.bookList.size()) {
             Book book = this.bookList.remove(pos);
-            this.checkedoutBookList.add(book);
+            this.checkedoutBookList.put(book, libraryNum);
             return true;
         }
         return false;
     }
 
     public boolean returnBook(String title) {
-        int pos = this.getTitlePosition(title, this.checkedoutBookList);
-
-        if (pos < this.checkedoutBookList.size()) {
-            Book book = this.checkedoutBookList.remove(pos);
-            this.bookList.add(book);
-            return true;
+        for (Book b: this.checkedoutBookList.keySet()) {
+            if (b.getTitle().equals(title)) {
+                this.checkedoutBookList.remove(b);
+                this.bookList.add(b);
+                return true;
+            }
         }
         return false;
     }
@@ -93,24 +91,24 @@ public class Library {
         this.movieList.add(movie);
     }
 
-    public boolean checkoutMovie(String title) {
+    public boolean checkoutMovie(String title, String libraryNum) {
         int pos = getTitlePosition(title, this.movieList);
 
         if (pos < this.movieList.size()) {
             Movie movie = this.movieList.remove(pos);
-            this.checkedoutMovieList.add(movie);
+            this.checkedoutMovieList.put(movie, libraryNum);
             return true;
         }
         return false;
     }
 
     public boolean returnMovie(String title) {
-        int pos = this.getTitlePosition(title, this.checkedoutMovieList);
-
-        if (pos < this.checkedoutMovieList.size()) {
-            Movie movie = this.checkedoutMovieList.remove(pos);
-            this.movieList.add(movie);
-            return true;
+        for(Movie movie: this.checkedoutMovieList.keySet()) {
+            if (movie.getTitle().equals(title)) {
+                this.checkedoutMovieList.remove(movie);
+                this.movieList.add(movie);
+                return true;
+            }
         }
         return false;
     }
