@@ -154,7 +154,12 @@ public class BibliotecaApp {
         return result.trim();
     }
 
-    public void login(String librarynum, String password) {
+    public String login(String librarynum, String password) {
         this.user = lib.getUser(librarynum, password);
+        if (isLoggedIn()) {
+            return "Welcome ";
+        } else {
+            return "Login failed. Please try again";
+        }
     }
 }
