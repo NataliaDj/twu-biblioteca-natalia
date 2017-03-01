@@ -16,5 +16,10 @@ public class UserTest {
         assertThat(user.getUsername(), is(username));
     }
 
-
+    @Test
+    public void getPasswordReturnsPasswordString() {
+        String password = "pass";
+        User user = new User("user", password);
+        assertThat(user.getPassword(), is(password));
+    }
 }
