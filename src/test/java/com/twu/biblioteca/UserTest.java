@@ -30,4 +30,10 @@ public class UserTest {
     public void getPasswordReturnsPasswordString() {
         assertThat(user.getPassword(), is(password));
     }
+
+    @Test
+    public void equalWithOtherUserWithSameUsernamAndPasswordReturnsTrue() {
+        User user2 = new User(username, password);
+        assertThat(user.equals(user2), is(true));
+    }
 }
