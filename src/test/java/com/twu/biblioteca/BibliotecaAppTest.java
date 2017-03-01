@@ -173,4 +173,10 @@ public class BibliotecaAppTest {
     public void isLoggedInReturnFalseInitially() {
         assertThat(app.isLoggedIn(), is(false));
     }
+
+    @Test
+    public void isLoggedInReturnsTrueAfterSuccessfulLogin() {
+        app.login("004-1027", "pass");
+        assertThat(app.isLoggedIn(), is(true));
+    }
 }
