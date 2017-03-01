@@ -214,7 +214,7 @@ public class BibliotecaAppTest {
     @Test
     public void loginSuccessfullyReturnsWelcomeMessage() {
         String message = app.login(defaultUser.getLibraryNumber(), defaultUser.getPassword());
-        assertThat(message, is("Welcome "));
+        assertThat(message, is("Welcome " + defaultUser.getName()));
     }
 
     @Test

@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static junit.framework.TestCase.fail;
+import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
@@ -67,6 +68,16 @@ public class UserTest {
     @Test
     public void getPhoneReturnsPhoneString() {
         assertThat(user.getPhone(), is(phone));
+    }
+
+    @Test
+    public void getDetailsContainsAllDetailsString() {
+        String result = user.getDetails();
+
+        assertThat(result, containsString(librarynum));
+        assertThat(result, containsString(name));
+        assertThat(result, containsString(email));
+        assertThat(result, containsString(phone));
     }
 
 }

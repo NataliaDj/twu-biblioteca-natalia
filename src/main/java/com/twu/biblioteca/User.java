@@ -90,4 +90,13 @@ public class User {
 
         return result;
     }
+
+    public String getDetails() {
+        String result = this.name + "\n";
+        result += "Library Number: " + this.librarynum + "\n";
+        result += "Email: " + this.email + "\n";
+        result += "Phone: " + this.phone + "\n";
+
+        return result;
+    }
 }

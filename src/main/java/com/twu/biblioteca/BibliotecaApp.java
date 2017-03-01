@@ -55,6 +55,8 @@ public class BibliotecaApp {
                     return this.login(param);
                 case LOGOUT:
                     return this.logout();
+                case VIEW_DETAILS:
+                    return user.getDetails();
 
             }
         }
@@ -189,7 +191,7 @@ public class BibliotecaApp {
     public String login(String librarynum, String password) {
         this.user = lib.getUser(librarynum, password);
         if (isLoggedIn()) {
-            return "Welcome ";
+            return "Welcome " + this.user.getName();
         } else {
             return "Login failed. Please try again";
         }
