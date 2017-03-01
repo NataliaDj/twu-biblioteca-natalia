@@ -1,6 +1,5 @@
-package test.java.com.twu.biblioteca;
+package com.twu.biblioteca;
 
-import main.java.com.twu.biblioteca.Movie;
 import org.junit.Before;
 import org.junit.Test;
 

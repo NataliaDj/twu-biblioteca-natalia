@@ -1,4 +1,4 @@
-package main.java.com.twu.biblioteca;
+package com.twu.biblioteca;
 
 import java.util.Scanner;
 

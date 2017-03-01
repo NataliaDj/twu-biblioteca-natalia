@@ -1,7 +1,5 @@
-package test.java.com.twu.biblioteca;
+package com.twu.biblioteca;
 
-import main.java.com.twu.biblioteca.Menu;
-import org.hamcrest.MatcherAssert;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.hasItem;
