@@ -153,4 +153,8 @@ public class BibliotecaApp {
         }
         return result.trim();
     }
+
+    public void login(String librarynum, String password) {
+        this.user = lib.getUser(librarynum, password);
+    }
 }
