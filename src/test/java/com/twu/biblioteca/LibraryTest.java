@@ -170,7 +170,7 @@ public class LibraryTest {
 
     @Test
     public void getUsersListReturnsDefaultLibraryMembers() {
-        assertThat(lib.getUsersList(), hasItem(new User("004-1027", "pass")));
+        assertThat(lib.getUsersList(), hasItem(new User("004-1027", "pass", "John Smith", "j.smith@mail.com", "8903921")));
     }
 
     @Test

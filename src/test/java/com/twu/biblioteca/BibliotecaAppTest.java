@@ -19,7 +19,7 @@ public class BibliotecaAppTest {
 
     @Before
     public void setup() {
-        defaultUser = new User("004-1027", "pass");
+        defaultUser = new User("004-1027", "pass", "John Smith", "j.smith@mail.com", "8903921");
         app = BibliotecaApp.defaultBibliotecaApp();
     }
 

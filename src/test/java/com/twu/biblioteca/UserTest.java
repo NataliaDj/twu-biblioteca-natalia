@@ -22,6 +22,9 @@ public class UserTest {
     public void setup() {
         librarynum = "004-1027";
         password = "pass";
+        name = "Byron Li";
+        email = "bli@somemail.com";
+        phone = "7927192";
         user = new User(librarynum, password, name, email, phone);
     }
 
