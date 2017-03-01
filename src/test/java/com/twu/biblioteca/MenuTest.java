@@ -28,6 +28,7 @@ public class MenuTest {
         assertThat(options, not(hasItem("Return Book")));
         assertThat(options, not(hasItem("Checkout Movie")));
         assertThat(options, not(hasItem("Return Movie")));
+        assertThat(options, not(hasItem("View Details")));
     }
 
     @Test
@@ -44,6 +45,7 @@ public class MenuTest {
         assertThat(options, hasItem("Return Book"));
         assertThat(options, hasItem("Checkout Movie"));
         assertThat(options, hasItem("Return Movie"));
+        assertThat(options, hasItem("View Details"));
     }
 
     @Test
@@ -82,18 +84,23 @@ public class MenuTest {
     }
 
     @Test
-    public void toOptionReturnLoginReturnsReturnLoginOption() {
+    public void toOptioLoginReturnsLoginOption() {
         assertThat(Menu.toOption("Login"), is(Menu.Option.LOGIN));
     }
 
     @Test
-    public void toOptionReturnLogoutReturnsReturnLogoutOption() {
+    public void toOptionLogoutReturnsLogoutOption() {
         assertThat(Menu.toOption("Logout"), is(Menu.Option.LOGOUT));
     }
 
     @Test
-    public void toOptionReturnListCheckeOutItemReturnsReturnListCheckedoutOption() {
+    public void toOptionListCheckeOutItemReturnsListCheckedoutOption() {
         assertThat(Menu.toOption("List Checked Out Items"), is(Menu.Option.LIST_CHECKEDOUT));
+    }
+
+    @Test
+    public void toOptiosViewDetailsReturnsViewDetailsOption() {
+        assertThat(Menu.toOption("View Details"), is(Menu.Option.VIEW_DETAILS));
     }
 
 }
