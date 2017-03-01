@@ -185,4 +185,11 @@ public class BibliotecaAppTest {
         app.login("123-4567", "nonexistantuser");
         assertThat(app.isLoggedIn(), is(false));
     }
+
+
+    @Test
+    public void loginSuccessfullyReturnsWelcomeMessage() {
+        String message = app.login("004-1027", "pass");
+        assertThat(message, is("Welcome "));
+    }
 }
