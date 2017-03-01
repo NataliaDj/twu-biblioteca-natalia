@@ -1,5 +1,6 @@
 package com.twu.biblioteca;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class BibliotecaApp {
@@ -79,7 +80,15 @@ public class BibliotecaApp {
     public String viewMenuOptions() {
         String result = "Options:\n";
         int counter = 1;
-        for (String option: Menu.getFullMenuOptionsList()) {
+
+        List<String> menuOption;
+        if (isLoggedIn()) {
+            menuOption = Menu.getFullMenuOptionsList();
+        } else {
+            menuOption = Menu.getBasicMenuOptionsList();
+        }
+
+        for (String option: menuOption) {
             result += counter + ". " +option + "\n";
             counter++;
         }
