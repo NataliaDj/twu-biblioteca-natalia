@@ -19,6 +19,7 @@ public class MenuTest {
         List<String> options = Menu.getBasicMenuOptionsList();
         assertThat(options, hasItem("List Books"));
         assertThat(options, hasItem("List Movies"));
+        assertThat(options, hasItem("List Checked Out Items"));
         assertThat(options, hasItem("Quit"));
         assertThat(options, hasItem("Login"));
 
@@ -34,6 +35,7 @@ public class MenuTest {
         List<String> options = Menu.getFullMenuOptionsList();
         assertThat(options, hasItem("List Books"));
         assertThat(options, hasItem("List Movies"));
+        assertThat(options, hasItem("List Checked Out Items"));
         assertThat(options, hasItem("Quit"));
         assertThat(options, not(hasItem("Login")));
 
@@ -88,4 +90,10 @@ public class MenuTest {
     public void toOptionReturnLogoutReturnsReturnLogoutOption() {
         assertThat(Menu.toOption("Logout"), is(Menu.Option.LOGOUT));
     }
+
+    @Test
+    public void toOptionReturnListCheckeOutItemReturnsReturnListCheckedoutOption() {
+        assertThat(Menu.toOption("List Checked Out Items"), is(Menu.Option.LIST_CHECKEDOUT));
+    }
+
 }
