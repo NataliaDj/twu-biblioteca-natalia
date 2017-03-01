@@ -17,7 +17,7 @@ public class UserTest {
 
     @Before
     public void setup() {
-        librarynum = "user";
+        librarynum = "004-1027";
         password = "pass";
         user = new User(librarynum, password);
     }

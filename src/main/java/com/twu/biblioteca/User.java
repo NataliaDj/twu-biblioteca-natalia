@@ -8,12 +8,42 @@ public class User {
     private String password;
 
     public User(String librarynum, String password) {
-        this.librarynum = librarynum;
+        setLibraryNumber(librarynum);
+        if (this.librarynum == null) {
+            throw new IllegalArgumentException();
+        }
+
         this.password = password;
     }
 
     public String getLibraryNumber() {
         return this.librarynum;
+    }
+
+    private boolean setLibraryNumber(String number) {
+        String[] splitResult = number.split("-");
+
+        if (splitResult.length != 2) {
+            return false;
+        }
+
+        if (splitResult[0].length() != 3) {
+            return false;
+        }
+
+        if (splitResult[1].length() != 4) {
+            return false;
+        }
+
+        try {
+            Integer.parseInt(splitResult[0]);
+            Integer.parseInt(splitResult[1]);
+        } catch (Exception e) {
+            return false;
+        }
+
+        this.librarynum = number;
+        return true;
     }
 
     public String getPassword() {
