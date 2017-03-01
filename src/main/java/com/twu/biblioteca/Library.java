@@ -12,12 +12,14 @@ public class Library {
     private List<Book> checkedoutBookList;
     private List<Movie> movieList;
     private List<Movie> checkedoutMovieList;
+    private List<User> usersList;
 
-    public Library(List<Book> booksList, List<Movie> moviesList) {
+    public Library(List<Book> booksList, List<Movie> moviesList, List<User> usersList) {
         this.bookList = booksList;
         this.checkedoutBookList = new ArrayList<Book>();
         this.movieList = moviesList;
         this.checkedoutMovieList = new ArrayList<Movie>();
+        this.usersList = usersList;
     }
 
     public static Library defaultLibrary() {
@@ -41,7 +43,16 @@ public class Library {
                 )
         );
 
-        return new Library(booksList, moviesList);
+        List<User> usersList = new ArrayList<User>(
+                Arrays.asList(
+                        new User("004-1027", "pass"),
+                        new User("210-3201", "pass1"),
+                        new User("100-0420", "pass2"),
+                        new User("186-6749", "pass3")
+                )
+        );
+
+        return new Library(booksList, moviesList, usersList);
     }
 
     public List<Book> getBookList() {
