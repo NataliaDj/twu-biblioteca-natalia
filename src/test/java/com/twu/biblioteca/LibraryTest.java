@@ -163,8 +163,15 @@ public class LibraryTest {
     }
 
     @Test
-    public void getMembersListReturnsDefaultLibraryMembers() {
+    public void getUsersListReturnsDefaultLibraryMembers() {
         assertThat(lib.getUsersList(), hasItem(new User("004-1027", "pass")));
+    }
+
+    @Test
+    public void getUserReturnsCorrectUser() {
+        User u = lib.getUser("004-1027", "pass");
+        assertThat(u.getLibraryNumber(), is("004-1027"));
+        assertThat(u.getPassword(), is("pass"));
     }
 
 }

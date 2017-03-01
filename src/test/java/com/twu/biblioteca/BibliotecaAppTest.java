@@ -168,4 +168,9 @@ public class BibliotecaAppTest {
     public void getMenuOptionResultReturnMovieNonCheckedoutMovieReturnsInvalidBookMessage() {
         assertThat(app.getMenuOptionResult("Return Movie Jaws"), is("That is not a valid movie to return."));
     }
+
+    @Test
+    public void isLoggedInReturnFalseInitially() {
+        assertThat(app.isLoggedIn(), is(false));
+    }
 }

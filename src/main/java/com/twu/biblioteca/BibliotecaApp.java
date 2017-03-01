@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class BibliotecaApp {
     private Library lib;
     private boolean run = true;
+    private User user;
 
     public static void main(String[] args) {
         BibliotecaApp app = BibliotecaApp.defaultBibliotecaApp();
@@ -52,6 +53,10 @@ public class BibliotecaApp {
 
     public boolean isRunning() {
         return run;
+    }
+
+    public boolean isLoggedIn() {
+        return user != null;
     }
 
     public void run() {
