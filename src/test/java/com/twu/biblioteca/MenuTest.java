@@ -24,7 +24,7 @@ public class MenuTest {
         assertThat(Menu.getFullMenuOptionsList(), hasItem("List Books"));
         assertThat(Menu.getFullMenuOptionsList(), hasItem("List Movies"));
         assertThat(Menu.getFullMenuOptionsList(), hasItem("Quit"));
-        assertThat(Menu.getBasicMenuOptionsList(), hasItem("Login"));
+        assertThat(Menu.getBasicMenuOptionsList(), hasItem("Logout"));
 
         assertThat(Menu.getFullMenuOptionsList(), hasItem("Checkout Book"));
         assertThat(Menu.getFullMenuOptionsList(), hasItem("Return Book"));
@@ -65,5 +65,15 @@ public class MenuTest {
     @Test
     public void toOptionReturnMovieTitleReturnsReturnMovieOption() {
         assertThat(Menu.toOption("Return Movie Title"), is(Menu.Option.RETURN_MOVIE));
+    }
+
+    @Test
+    public void toOptionReturnLoginReturnsReturnLoginOption() {
+        assertThat(Menu.toOption("Return Movie Title"), is(Menu.Option.LOGIN));
+    }
+
+    @Test
+    public void toOptionReturnLogoutReturnsReturnLogoutOption() {
+        assertThat(Menu.toOption("Return Movie Title"), is(Menu.Option.LOGOUT));
     }
 }
