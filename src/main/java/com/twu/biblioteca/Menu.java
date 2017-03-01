@@ -10,7 +10,7 @@ public class Menu {
     public enum Option {
         LIST_BOOKS("List Books", true), CHECKOUT_BOOK("Checkout Book", false), RETURN_BOOK("Return Book", false),
         LIST_MOVIES("List Movies", true), CHECKOUT_MOVIE("Checkout Movie", false), RETURN_MOVIE("Return Movie", false),
-        LOGIN("Login", true), QUIT("Quit", true);
+        LOGIN("Login", true), LOGOUT("Logout", false), QUIT("Quit", true);
         private String name;
         private boolean basic;
         Option(String name, boolean basic) {
@@ -45,6 +45,8 @@ public class Menu {
     public static List<String> getFullMenuOptionsList() {
         List<String> options = new ArrayList<String>();
         for (Option o: Option.values()) {
+            if (o == Option.LOGIN)
+                continue;
             options.add(o.toString());
         }
         return options;
