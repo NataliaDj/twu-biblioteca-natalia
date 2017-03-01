@@ -2,8 +2,11 @@ package com.twu.biblioteca;
 
 import org.junit.Test;
 
+import java.util.List;
+
 import static org.hamcrest.CoreMatchers.hasItem;
 import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 /**
@@ -13,23 +16,32 @@ public class MenuTest {
 
     @Test
     public void getBasicMenuOptionsContainsLimitedOptionString() {
-        assertThat(Menu.getBasicMenuOptionsList(), hasItem("List Books"));
-        assertThat(Menu.getBasicMenuOptionsList(), hasItem("List Movies"));
-        assertThat(Menu.getBasicMenuOptionsList(), hasItem("Quit"));
-        assertThat(Menu.getBasicMenuOptionsList(), hasItem("Login"));
+        List<String> options = Menu.getBasicMenuOptionsList();
+        assertThat(options, hasItem("List Books"));
+        assertThat(options, hasItem("List Movies"));
+        assertThat(options, hasItem("Quit"));
+        assertThat(options, hasItem("Login"));
+
+        assertThat(options, not(hasItem("Logout")));
+        assertThat(options, not(hasItem("Checkout Book")));
+        assertThat(options, not(hasItem("Return Book")));
+        assertThat(options, not(hasItem("Checkout Movie")));
+        assertThat(options, not(hasItem("Return Movie")));
     }
 
     @Test
     public void getFullMenuOptionsContainsAllOptionString() {
-        assertThat(Menu.getFullMenuOptionsList(), hasItem("List Books"));
-        assertThat(Menu.getFullMenuOptionsList(), hasItem("List Movies"));
-        assertThat(Menu.getFullMenuOptionsList(), hasItem("Quit"));
-        assertThat(Menu.getBasicMenuOptionsList(), hasItem("Logout"));
+        List<String> options = Menu.getFullMenuOptionsList();
+        assertThat(options, hasItem("List Books"));
+        assertThat(options, hasItem("List Movies"));
+        assertThat(options, hasItem("Quit"));
+        assertThat(options, not(hasItem("Login")));
 
-        assertThat(Menu.getFullMenuOptionsList(), hasItem("Checkout Book"));
-        assertThat(Menu.getFullMenuOptionsList(), hasItem("Return Book"));
-        assertThat(Menu.getFullMenuOptionsList(), hasItem("Checkout Movie"));
-        assertThat(Menu.getFullMenuOptionsList(), hasItem("Return Movie"));
+        assertThat(options, hasItem("Logout"));
+        assertThat(options, hasItem("Checkout Book"));
+        assertThat(options, hasItem("Return Book"));
+        assertThat(options, hasItem("Checkout Movie"));
+        assertThat(options, hasItem("Return Movie"));
     }
 
     @Test
@@ -69,11 +81,11 @@ public class MenuTest {
 
     @Test
     public void toOptionReturnLoginReturnsReturnLoginOption() {
-        assertThat(Menu.toOption("Return Movie Title"), is(Menu.Option.LOGIN));
+        assertThat(Menu.toOption("Login"), is(Menu.Option.LOGIN));
     }
 
     @Test
     public void toOptionReturnLogoutReturnsReturnLogoutOption() {
-        assertThat(Menu.toOption("Return Movie Title"), is(Menu.Option.LOGOUT));
+        assertThat(Menu.toOption("Logout"), is(Menu.Option.LOGOUT));
     }
 }
