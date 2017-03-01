@@ -13,13 +13,16 @@ import static org.hamcrest.core.Is.is;
 public class UserTest {
     String librarynum;
     String password;
+    String name;
+    String email;
+    String phone;
     User user;
 
     @Before
     public void setup() {
         librarynum = "004-1027";
         password = "pass";
-        user = new User(librarynum, password);
+        user = new User(librarynum, password, name, email, phone);
     }
 
     @Test
@@ -47,4 +50,20 @@ public class UserTest {
         User user2 = new User(librarynum, password);
         assertThat(user.equals(user2), is(true));
     }
+
+    @Test
+    public void getNameReturnsNameString() {
+        assertThat(user.getName(), is(name));
+    }
+
+    @Test
+    public void getEmailReturnsEmailString() {
+        assertThat(user.getEmail(), is(email));
+    }
+
+    @Test
+    public void getPhoneReturnsPhoneString() {
+        assertThat(user.getName(), is(name));
+    }
+
 }
