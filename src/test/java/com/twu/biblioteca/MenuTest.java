@@ -12,14 +12,22 @@ import static org.hamcrest.MatcherAssert.assertThat;
 public class MenuTest {
 
     @Test
-    public void getMenuOptionsContainsAllOptionString() {
-        assertThat(Menu.getMenuOptionsList(), hasItem("List Books"));
-        assertThat(Menu.getMenuOptionsList(), hasItem("List Movies"));
-        assertThat(Menu.getMenuOptionsList(), hasItem("Quit"));
-        assertThat(Menu.getMenuOptionsList(), hasItem("Checkout Book"));
-        assertThat(Menu.getMenuOptionsList(), hasItem("Return Book"));
-        assertThat(Menu.getMenuOptionsList(), hasItem("Checkout Movie"));
-        assertThat(Menu.getMenuOptionsList(), hasItem("Return Movie"));
+    public void getBasicMenuOptionsContainsLimitedOptionString() {
+        assertThat(Menu.getBasicMenuOptionsList(), hasItem("List Books"));
+        assertThat(Menu.getBasicMenuOptionsList(), hasItem("List Movies"));
+        assertThat(Menu.getBasicMenuOptionsList(), hasItem("Quit"));
+    }
+
+    @Test
+    public void getFullMenuOptionsContainsAllOptionString() {
+        assertThat(Menu.getFullMenuOptionsList(), hasItem("List Books"));
+        assertThat(Menu.getFullMenuOptionsList(), hasItem("List Movies"));
+        assertThat(Menu.getFullMenuOptionsList(), hasItem("Quit"));
+
+        assertThat(Menu.getFullMenuOptionsList(), hasItem("Checkout Book"));
+        assertThat(Menu.getFullMenuOptionsList(), hasItem("Return Book"));
+        assertThat(Menu.getFullMenuOptionsList(), hasItem("Checkout Movie"));
+        assertThat(Menu.getFullMenuOptionsList(), hasItem("Return Movie"));
     }
 
     @Test
