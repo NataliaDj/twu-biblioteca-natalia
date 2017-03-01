@@ -223,4 +223,16 @@ public class BibliotecaAppTest {
         app.logout();
         assertThat(app.isLoggedIn(), is(false));
     }
+
+    @Test
+    public void ListCheckedOutItemsContainsCheckedOutItemDetails() {
+        app.login(defaultUser.getLibraryNumber(), defaultUser.getPassword());
+        app.getMenuOptionResult("Checkout Book Hamlet");
+        app.getMenuOptionResult("Checkout Book Jaws");
+
+        String result = app.listCheckedOut();
+        assertThat(result, containsString(defaultUser.getLibraryNumber()));
+        assertThat(result, containsString("Hamlet"));
+        assertThat(result, containsString("Jaws"));
+    }
 }
