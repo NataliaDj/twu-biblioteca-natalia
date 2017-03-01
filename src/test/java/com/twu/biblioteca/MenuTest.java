@@ -16,6 +16,7 @@ public class MenuTest {
         assertThat(Menu.getBasicMenuOptionsList(), hasItem("List Books"));
         assertThat(Menu.getBasicMenuOptionsList(), hasItem("List Movies"));
         assertThat(Menu.getBasicMenuOptionsList(), hasItem("Quit"));
+        assertThat(Menu.getBasicMenuOptionsList(), hasItem("Login"));
     }
 
     @Test
@@ -23,6 +24,7 @@ public class MenuTest {
         assertThat(Menu.getFullMenuOptionsList(), hasItem("List Books"));
         assertThat(Menu.getFullMenuOptionsList(), hasItem("List Movies"));
         assertThat(Menu.getFullMenuOptionsList(), hasItem("Quit"));
+        assertThat(Menu.getBasicMenuOptionsList(), hasItem("Login"));
 
         assertThat(Menu.getFullMenuOptionsList(), hasItem("Checkout Book"));
         assertThat(Menu.getFullMenuOptionsList(), hasItem("Return Book"));
