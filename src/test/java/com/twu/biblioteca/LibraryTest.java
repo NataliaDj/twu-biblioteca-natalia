@@ -162,5 +162,9 @@ public class LibraryTest {
         assertThat(lib.returnMovie(movie.getTitle()), is(false));
     }
 
+    @Test
+    public void getMembersListReturnsDefaultLibraryMembers() {
+        assertThat(lib.getUsersList(), hasItem(new User("004-1027", "pass")));
+    }
 
 }

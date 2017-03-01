@@ -36,7 +36,7 @@ public class BibliotecaAppTest {
                         new Book(title, author, yearPublished)
                 )
         );
-        Library lib = new Library(books, new ArrayList<Movie>());
+        Library lib = new Library(books, new ArrayList<Movie>(), new ArrayList<User>());
         app = new BibliotecaApp(lib);
 
         String result = app.getMenuOptionResult("List Books");
@@ -123,7 +123,7 @@ public class BibliotecaAppTest {
                         new Movie(title, director, yearReleased, rating)
                 )
         );
-        Library lib = new Library(new ArrayList<Book>(), movies);
+        Library lib = new Library(new ArrayList<Book>(), movies, new ArrayList<User>());
         app = new BibliotecaApp(lib);
 
         String result = app.getMenuOptionResult("List Movies");
