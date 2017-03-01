@@ -127,4 +127,8 @@ public class Library {
 
     }
 
+    public List<User> getUsersList() {
+        return this.usersList;
+    }
+
 }
