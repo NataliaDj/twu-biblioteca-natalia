@@ -6,14 +6,20 @@ package com.twu.biblioteca;
 public class User {
     private String librarynum;
     private String password;
+    private String name;
+    private String email;
+    private String phone;
 
-    public User(String librarynum, String password) {
+    public User(String librarynum, String password, String name, String email, String phone) {
         setLibraryNumber(librarynum);
         if (this.librarynum == null) {
             throw new IllegalArgumentException();
         }
 
         this.password = password;
+        this.name = name;
+        this.email = email;
+        this.phone = phone;
     }
 
     public String getLibraryNumber() {
@@ -50,6 +56,18 @@ public class User {
         return this.password;
     }
 
+    public String getName() {
+        return this.name;
+    }
+
+    public String getEmail() {
+        return this.email;
+    }
+
+    public String getPhone() {
+        return this.phone;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (obj == this) {
@@ -66,6 +84,9 @@ public class User {
 
         result &= librarynum.equals(otherUser.getLibraryNumber());
         result &= password.equals(otherUser.getPassword());
+        result &= name.equals(otherUser.getName());
+        result &= email.equals(otherUser.getEmail());
+        result &= phone.equals(otherUser.getPhone());
 
         return result;
     }
