@@ -30,7 +30,7 @@ public class BibliotecaApp {
             String param = this.getCommandParam(option, chosenOption);
             switch (chosenOption) {
                 case LIST_BOOKS:
-                    return listAvailableBooks();
+                    return this.listAvailableBooks();
                 case QUIT:
                     run = false;
                     return "";
@@ -39,7 +39,7 @@ public class BibliotecaApp {
                 case RETURN_BOOK:
                     return this.returnBook(param);
                 case LIST_MOVIES:
-                    return listAvailableMovies();
+                    return this.listAvailableMovies();
                 case CHECKOUT_MOVIE:
                     return this.checkoutMovie(param);
                 case RETURN_MOVIE:
@@ -78,35 +78,53 @@ public class BibliotecaApp {
 
     private String checkoutBook(String title) {
         if (lib.checkoutBook(title)) {
-            return "Thank you! Enjoy the book";
+            return checkoutSuccessfulMessage("book");
         } else {
-            return "That book is not available.";
+            return checkoutFailMessage("book");
         }
     }
 
     private String returnBook(String title) {
         if (lib.returnBook(title)) {
-            return "Thank you for returning the book.";
+            return returnSuccessfulMessage("book");
         } else {
-            return "That is not a valid book to return.";
+            return returnFailMessage("book");
         }
     }
 
     private String checkoutMovie(String title) {
         if (lib.checkoutMovie(title)) {
-            return "Thank you! Enjoy the movie";
+            return checkoutSuccessfulMessage("movie");
         } else {
-            return "That movie is not available.";
+            return checkoutFailMessage("movie");
         }
     }
 
     private String returnMovie(String title) {
         if (lib.returnMovie(title)) {
-            return "Thank you for returning the movie.";
+            return returnSuccessfulMessage("movie");
         } else {
-            return "That is not a valid movie to return.";
+            return returnFailMessage("movie");
         }
     }
+
+    public String returnSuccessfulMessage(String type) {
+        return "Thank you for returning the " + type + ".";
+    }
+
+    public String returnFailMessage(String type) {
+        return "That is not a valid " + type + " to return.";
+    }
+
+    private String checkoutSuccessfulMessage(String type) {
+        return "Thank you! Enjoy the " + type;
+    }
+
+    private String checkoutFailMessage(String type) {
+        return "That " + type + " is not available.";
+    }
+
+
 
     private String getCommandParam(String command, Menu.Option optionType) {
         int beginIndex = optionType.length() + 1;
