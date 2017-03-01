@@ -51,6 +51,8 @@ public class BibliotecaApp {
                     return this.checkoutMovie(param);
                 case RETURN_MOVIE:
                     return this.returnMovie(param);
+                case LOGIN:
+                    return this.login(param);
 
             }
         }
@@ -166,6 +168,20 @@ public class BibliotecaApp {
             result += movie.getDetails() + "\n";
         }
         return result.trim();
+    }
+
+    public String login(String credentials) {
+        String[] params = credentials.split(" ");
+        String libraryNum = params[0];
+        String password = "";
+        
+        try {
+            password = params[1];
+        } catch (Exception e) {
+
+        }
+
+        return login(libraryNum, password);
     }
 
     public String login(String librarynum, String password) {
