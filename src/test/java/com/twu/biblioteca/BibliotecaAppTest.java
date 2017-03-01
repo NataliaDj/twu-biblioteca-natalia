@@ -15,9 +15,11 @@ import static org.hamcrest.MatcherAssert.assertThat;
 public class BibliotecaAppTest {
 
     BibliotecaApp app;
+    User defaultUser;
 
     @Before
     public void setup() {
+        defaultUser = new User("004-1027", "pass");
         app = BibliotecaApp.defaultBibliotecaApp();
     }
 
@@ -176,7 +178,7 @@ public class BibliotecaAppTest {
 
     @Test
     public void isLoggedInReturnsTrueAfterSuccessfulLogin() {
-        app.login("004-1027", "pass");
+        app.login(defaultUser.getLibraryNumber(), defaultUser.getPassword());
         assertThat(app.isLoggedIn(), is(true));
     }
 
@@ -189,7 +191,7 @@ public class BibliotecaAppTest {
 
     @Test
     public void loginSuccessfullyReturnsWelcomeMessage() {
-        String message = app.login("004-1027", "pass");
+        String message = app.login(defaultUser.getLibraryNumber(), defaultUser.getPassword());
         assertThat(message, is("Welcome "));
     }
 }

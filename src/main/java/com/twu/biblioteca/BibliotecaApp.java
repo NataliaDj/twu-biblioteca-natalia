@@ -28,6 +28,11 @@ public class BibliotecaApp {
     public String getMenuOptionResult(String option) {
         Menu.Option chosenOption = Menu.toOption(option);
         if (chosenOption != null) {
+
+            if (!chosenOption.isBasic() && !isLoggedIn()) {
+                return "Please login first";
+            }
+
             String param = this.getCommandParam(option, chosenOption);
             switch (chosenOption) {
                 case LIST_BOOKS:
