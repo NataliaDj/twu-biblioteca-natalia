@@ -43,10 +43,10 @@ public class Library {
 
         List<User> usersList = new ArrayList<User>(
                 Arrays.asList(
-                        new User("004-1027", "pass"),
-                        new User("210-3201", "pass1"),
-                        new User("100-0420", "pass2"),
-                        new User("186-6749", "pass3")
+                        new User("004-1027", "pass", "John Smith", "j.smith@mail.com", "8903921"),
+                        new User("210-3201", "pass1", "Mary Jane", "plainjane@email.com", "06782911"),
+                        new User("100-0420", "pass2", "Frederick Roberts", "freddie.r@rocketmail.com", "39274812"),
+                        new User("186-6749", "pass3", "Bethany Sue", "beths@workmail.com", "017620371")
                 )
         );
 
