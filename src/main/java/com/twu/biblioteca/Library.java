@@ -17,6 +17,7 @@ public class Library {
         this.bookList = booksList;
         this.checkedoutBookList = new ArrayList<Book>();
         this.movieList = moviesList;
+        this.checkedoutMovieList = new ArrayList<Movie>();
     }
 
     public static Library defaultLibrary() {
@@ -85,14 +86,22 @@ public class Library {
         int pos = getTitlePosition(title, this.movieList);
 
         if (pos < this.movieList.size()) {
-            this.movieList.remove(pos);
+            Movie movie = this.movieList.remove(pos);
+            this.checkedoutMovieList.add(movie);
             return true;
         }
         return false;
     }
 
     public boolean returnMovie(String title) {
-        return true;
+        int pos = this.getTitlePosition(title, this.checkedoutMovieList);
+
+        if (pos < this.checkedoutMovieList.size()) {
+            Movie movie = this.checkedoutMovieList.remove(pos);
+            this.movieList.add(movie);
+            return true;
+        }
+        return false;
     }
 
     public int getTitlePosition(String title, List<? extends LibraryItem> list) {
