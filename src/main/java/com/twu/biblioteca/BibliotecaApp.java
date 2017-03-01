@@ -41,17 +41,9 @@ public class BibliotecaApp {
                 case LIST_MOVIES:
                     return listAvailableMovies();
                 case CHECKOUT_MOVIE:
-                    if (lib.checkoutMovie(param)) {
-                        return "Thank you! Enjoy the movie";
-                    } else {
-                        return "That movie is not available.";
-                    }
+                    return this.checkoutMovie(param);
                 case RETURN_MOVIE:
-                    if (lib.returnMovie(param)) {
-                        return "Thank you for returning the movie.";
-                    } else {
-                        return "That is not a valid movie to return.";
-                    }
+                    return this.returnMovie(param);
 
             }
         }
@@ -97,6 +89,22 @@ public class BibliotecaApp {
             return "Thank you for returning the book.";
         } else {
             return "That is not a valid book to return.";
+        }
+    }
+
+    private String checkoutMovie(String title) {
+        if (lib.checkoutMovie(title)) {
+            return "Thank you! Enjoy the movie";
+        } else {
+            return "That movie is not available.";
+        }
+    }
+
+    private String returnMovie(String title) {
+        if (lib.returnMovie(title)) {
+            return "Thank you for returning the movie.";
+        } else {
+            return "That is not a valid movie to return.";
         }
     }
 
