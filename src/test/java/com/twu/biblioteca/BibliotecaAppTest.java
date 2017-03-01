@@ -56,38 +56,38 @@ public class BibliotecaAppTest {
     }
 
     @Test
-    public void getMenuOptionResultCheckoutSuccessfullyReturnsThankYouMessage() {
+    public void getMenuOptionResultCheckoutBookSuccessfullyReturnsThankYouMessage() {
         assertThat(app.getMenuOptionResult("Checkout Book Hamlet"), is("Thank you! Enjoy the book"));
     }
 
     @Test
-    public void getMenuOptionResultCheckoutNoBookSpecifiedReturnsInvalidMessage() {
+    public void getMenuOptionResultCheckoutBookNoBookSpecifiedReturnsInvalidMessage() {
         assertThat(app.getMenuOptionResult("Checkout Book"), is("That book is not available."));
     }
 
     @Test
-    public void getMenuOptionResultCheckoutUnsuccessfullyReturnsUnavailableMessage() {
+    public void getMenuOptionResultCheckoutBookUnsuccessfullyReturnsUnavailableMessage() {
         assertThat(app.getMenuOptionResult("Checkout Book Tarzan"), is("That book is not available."));
     }
 
     @Test
-    public void getMenuOptionResultReturnSuccessfullyReturnsThankYouMessage() {
+    public void getMenuOptionResultReturnBookSuccessfullyReturnsThankYouMessage() {
         app.getMenuOptionResult("Checkout Book Hamlet");
         assertThat(app.getMenuOptionResult("Return Book Hamlet"), is("Thank you for returning the book."));
     }
 
     @Test
-    public void getMenuOptionResultReturnNoBookSpecifiedReturnsInvalidBookMessage() {
+    public void getMenuOptionResultReturnBookNoBookSpecifiedReturnsInvalidBookMessage() {
         assertThat(app.getMenuOptionResult("Return Book"), is("That is not a valid book to return."));
     }
 
     @Test
-    public void getMenuOptionResultReturnUnlistedBookReturnsInvalidBookMessage() {
+    public void getMenuOptionResultReturnBookUnlistedBookReturnsInvalidBookMessage() {
         assertThat(app.getMenuOptionResult("Return Book Tarzan"), is("That is not a valid book to return."));
     }
 
     @Test
-    public void getMenuOptionResultReturnNonCheckedoutBookReturnsInvalidBookMessage() {
+    public void getMenuOptionResultReturnBookNonCheckedoutBookReturnsInvalidBookMessage() {
         assertThat(app.getMenuOptionResult("Return Book Hamlet"), is("That is not a valid book to return."));
     }
 
@@ -131,5 +131,41 @@ public class BibliotecaAppTest {
         assertThat(result, containsString(director));
         assertThat(result, containsString(String.valueOf(yearReleased)));
         assertThat(result, containsString(String.valueOf(rating)));
+    }
+
+    @Test
+    public void getMenuOptionResultCheckoutMovieSuccessfullyReturnsThankYouMessage() {
+        assertThat(app.getMenuOptionResult("Checkout Movie Jaws"), is("Thank you! Enjoy the movie"));
+    }
+
+    @Test
+    public void getMenuOptionResultCheckoutMovieNoMovieSpecifiedReturnsInvalidMessage() {
+        assertThat(app.getMenuOptionResult("Checkout Movie"), is("That movie is not available."));
+    }
+
+    @Test
+    public void getMenuOptionResultCheckoutMovieUnsuccessfullyReturnsUnavailableMessage() {
+        assertThat(app.getMenuOptionResult("Checkout Movie Tarzan"), is("That movie is not available."));
+    }
+
+    @Test
+    public void getMenuOptionResultReturnMovieSuccessfullyReturnsThankYouMessage() {
+        app.getMenuOptionResult("Checkout Movie Jaws");
+        assertThat(app.getMenuOptionResult("Return Movie Jaws"), is("Thank you for returning the movie."));
+    }
+
+    @Test
+    public void getMenuOptionResultReturnMovieNoMovieSpecifiedReturnsInvalidMovieMessage() {
+        assertThat(app.getMenuOptionResult("Return Movie"), is("That is not a valid movie to return."));
+    }
+
+    @Test
+    public void getMenuOptionResultReturnMovieUnlistedMovieReturnsInvalidBookMessage() {
+        assertThat(app.getMenuOptionResult("Return Movie Tarzan"), is("That is not a valid movie to return."));
+    }
+
+    @Test
+    public void getMenuOptionResultReturnMovieNonCheckedoutMovieReturnsInvalidBookMessage() {
+        assertThat(app.getMenuOptionResult("Return Movie Jaws"), is("That is not a valid movie to return."));
     }
 }
