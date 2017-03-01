@@ -57,6 +57,8 @@ public class BibliotecaApp {
                     return this.logout();
                 case VIEW_DETAILS:
                     return user.getDetails();
+                case LIST_CHECKEDOUT:
+                    return this.listCheckedOut();
 
             }
         }
@@ -192,8 +194,10 @@ public class BibliotecaApp {
         this.user = lib.getUser(librarynum, password);
         if (isLoggedIn()) {
             return "Welcome " + this.user.getName();
-        } else {
+        } else if (!librarynum.isEmpty() && !password.isEmpty()) {
             return "Login failed. Please try again";
+        } else {
+            return "Please enter library number and password in the format 'Login [library number] [password]'";
         }
     }
 
