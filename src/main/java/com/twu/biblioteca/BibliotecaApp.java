@@ -27,6 +27,7 @@ public class BibliotecaApp {
     public String getMenuOptionResult(String option) {
         Menu.Option chosenOption = Menu.toOption(option);
         if (chosenOption != null) {
+            String param = this.getCommandParam(option, chosenOption);
             switch (chosenOption) {
                 case LIST_BOOKS:
                     return listAvailableBooks();
@@ -34,13 +35,12 @@ public class BibliotecaApp {
                     run = false;
                     return "";
                 case CHECKOUT_BOOK:
-                    String bookTitle = this.getCommandParam(option, Menu.Option.CHECKOUT_BOOK);
-                    return this.checkoutBook(bookTitle);
+                    return this.checkoutBook(param);
                 case RETURN_BOOK:
-                    bookTitle = this.getCommandParam(option, Menu.Option.RETURN_BOOK);
-                    return this.returnBook(bookTitle);
+                    return this.returnBook(param);
                 case LIST_MOVIES:
                     return listAvailableMovies();
+
             }
         }
         return "Select a valid option!";
