@@ -3,6 +3,7 @@ package com.twu.biblioteca;
 import org.junit.Before;
 import org.junit.Test;
 
+import static junit.framework.TestCase.fail;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
@@ -22,7 +23,17 @@ public class UserTest {
     }
 
     @Test
-    public void getUsernameReturnsUsernameString() {
+    public void constructUserWithWrongLibraryNumFormatThrowsIllegalArgumentException() {
+        try {
+            new User("1234567", password);
+            fail();
+        } catch (IllegalArgumentException e) {
+
+        }
+    }
+
+    @Test
+    public void getLibraryNumberReturnsLibraryNumberString() {
         assertThat(user.getLibraryNumber(), is(librarynum));
     }
 
@@ -32,7 +43,7 @@ public class UserTest {
     }
 
     @Test
-    public void equalWithOtherUserWithSameUsernamAndPasswordReturnsTrue() {
+    public void equalWithOtherUserWithSameLibraryNumberAndPasswordReturnsTrue() {
         User user2 = new User(librarynum, password);
         assertThat(user.equals(user2), is(true));
     }
