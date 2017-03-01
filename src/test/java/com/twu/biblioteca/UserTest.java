@@ -28,7 +28,7 @@ public class UserTest {
     @Test
     public void constructUserWithWrongLibraryNumFormatThrowsIllegalArgumentException() {
         try {
-            new User("1234567", password);
+            new User("1234567", password, name, email, phone);
             fail();
         } catch (IllegalArgumentException e) {
 
@@ -47,7 +47,7 @@ public class UserTest {
 
     @Test
     public void equalWithOtherUserWithSameLibraryNumberAndPasswordReturnsTrue() {
-        User user2 = new User(librarynum, password);
+        User user2 = new User(librarynum, password, name, email, phone);
         assertThat(user.equals(user2), is(true));
     }
 
@@ -63,7 +63,7 @@ public class UserTest {
 
     @Test
     public void getPhoneReturnsPhoneString() {
-        assertThat(user.getName(), is(name));
+        assertThat(user.getPhone(), is(phone));
     }
 
 }
