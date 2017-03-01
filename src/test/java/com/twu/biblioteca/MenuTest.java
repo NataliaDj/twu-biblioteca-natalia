@@ -99,7 +99,7 @@ public class MenuTest {
     }
 
     @Test
-    public void toOptiosViewDetailsReturnsViewDetailsOption() {
+    public void toOptionsViewDetailsReturnsViewDetailsOption() {
         assertThat(Menu.toOption("View Details"), is(Menu.Option.VIEW_DETAILS));
     }
 
