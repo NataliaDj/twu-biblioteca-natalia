@@ -30,7 +30,7 @@ public class LibraryTest {
 
     @Test
     public void getBookListReturns0ForEmptyLibraryTest() {
-        lib = new Library(new ArrayList<Book>(), new ArrayList<Movie>());
+        lib = new Library(new ArrayList<Book>(), new ArrayList<Movie>(), new ArrayList<User>());
         assertThat(lib.getBookList().size(), is(0));
     }
 
@@ -113,7 +113,7 @@ public class LibraryTest {
 
     @Test
     public void getMoviesListReturns0ForEmptyLibraryTest() {
-        lib = new Library(new ArrayList<Book>(), new ArrayList<Movie>());
+        lib = new Library(new ArrayList<Book>(), new ArrayList<Movie>(), new ArrayList<User>());
         assertThat(lib.getMoviesList().size(), is(0));
     }
 
@@ -161,5 +161,6 @@ public class LibraryTest {
     public void returnMovieUnsuccessfullyReturnFalse() {
         assertThat(lib.returnMovie(movie.getTitle()), is(false));
     }
+
 
 }
