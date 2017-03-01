@@ -125,7 +125,6 @@ public class LibraryTest {
     @Test
     public void checkoutMovieRemoveMovieFromMovieListTest() {
         lib.addMovie(movie);
-        assertThat(lib.getMoviesList(), hasItem(movie));
         lib.checkoutMovie(movie.getTitle());
         assertThat(lib.getMoviesList(), not(hasItem(movie)));
 
