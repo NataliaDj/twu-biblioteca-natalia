@@ -69,7 +69,7 @@ public class BibliotecaApp {
     public String viewMenuOptions() {
         String result = "Options:\n";
         int counter = 1;
-        for (String option: Menu.getMenuOptionsList()) {
+        for (String option: Menu.getFullMenuOptionsList()) {
             result += counter + ". " +option + "\n";
             counter++;
         }

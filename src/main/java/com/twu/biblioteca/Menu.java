@@ -8,12 +8,14 @@ import java.util.List;
  */
 public class Menu {
     public enum Option {
-        LIST_BOOKS("List Books"), CHECKOUT_BOOK("Checkout Book"), RETURN_BOOK("Return Book"),
-        LIST_MOVIES("List Movies"), CHECKOUT_MOVIE("Checkout Movie"), RETURN_MOVIE("Return Movie"),
-        QUIT("Quit");
+        LIST_BOOKS("List Books", true), CHECKOUT_BOOK("Checkout Book", false), RETURN_BOOK("Return Book", false),
+        LIST_MOVIES("List Movies", true), CHECKOUT_MOVIE("Checkout Movie", false), RETURN_MOVIE("Return Movie", false),
+        QUIT("Quit", true);
         private String name;
-        Option(String name) {
+        private boolean basic;
+        Option(String name, boolean basic) {
             this.name = name;
+            this.basic = basic;
         }
 
         @Override
@@ -24,9 +26,23 @@ public class Menu {
         public int length() {
             return name.length();
         }
+
+        public boolean isBasic() {
+            return basic;
+        }
     };
 
-    public static List<String> getMenuOptionsList() {
+    public static List<String> getBasicMenuOptionsList() {
+        List<String> options = new ArrayList<String>();
+        for (Option o: Option.values()) {
+            if (o.isBasic()) {
+                options.add(o.toString());
+            }
+        }
+        return options;
+    }
+
+    public static List<String> getFullMenuOptionsList() {
         List<String> options = new ArrayList<String>();
         for (Option o: Option.values()) {
             options.add(o.toString());
