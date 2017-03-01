@@ -199,4 +199,14 @@ public class BibliotecaApp {
         this.user = null;
         return "Logout Successful";
     }
+
+    public String listCheckedOut() {
+        String result = "Books:\n";
+        result += lib.getCheckedoutBooksDetails();
+
+        result += "\nMovies:\n";
+        result += lib.getCheckedoutMoviesDetails();
+
+        return result;
+    }
 }
