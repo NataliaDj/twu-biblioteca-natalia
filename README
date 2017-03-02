@@ -1,29 +1,22 @@
-Instructions to push your code to code.google.com
-=================================================
-1. Sign into GitHub and create a new repository
-        Repository name: twu-biblioteca-yourname
-        Privacy level: Public
-        Don't check "Initialize this repository with a README"
-        Add .gitignore: None
-        Add a license: Apache License 2.0
+# Biblioteca App
 
-2. Run 'git init' in the folder that was extracted from the downloaded .zip file, in order to
- initialize local repository.
+A simple console application the simulates a library with books and movies.
+Offers login options for predetermined members and checking out and returning library items.
 
-3. Make a local commit.
-    $ git add -A
-    $ git commit -m “Initial commit”
+Prerequisites
+=============
+Please have the following installed
+* Java jdk 1.5
+* Apache Maven 3.3.9
 
-(Dont forget to add the hidden .idea folder, as it will make opening your project in Intellij easier.)
+Installing
+==========
+1. Checkout/download the project
+2. Navigate to the project directory
+3. Run 'mvn clean install'
 
-4. After you are done with the local commit, you can share your code with "The World" by pushing it to your
- GitHub repository.
-    $ git remote add origin https://github.com/<YOUR-GITHUB-USERNAME>/twu-biblioteca-<YOURNAME>
-    $ git push origin master
-
-Instructions to open your code in Intellij
-==========================================
-1. Go to File -> Open (or Open Project)
-2. Select the directory containing the code
-DONE !
+Running
+=======
+1. In the project directory run 'mvn package'
+2. Run 'java -cp target/biblioteca-1.0-SNAPSHOT.jar com.twu.biblioteca.BibliotecaApp'
 
