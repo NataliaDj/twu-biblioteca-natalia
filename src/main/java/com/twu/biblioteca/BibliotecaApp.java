@@ -27,7 +27,7 @@ public class BibliotecaApp {
     }
 
     public String getMenuOptionResult(String option) {
-        Menu.Option chosenOption = Menu.toOption(option);
+        Menu.Option chosenOption = Menu.valueOf(option);
         if (chosenOption != null) {
 
             if (!chosenOption.isBasic() && !isLoggedIn()) {

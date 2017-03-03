@@ -54,7 +54,7 @@ public class Menu {
         return options;
     }
 
-    public static Option toOption(String command) {
+    public static Option valueOf(String command) {
         for (Option o: Option.values()) {
             try {
                 String chosenOption = command.substring(0, o.length());
