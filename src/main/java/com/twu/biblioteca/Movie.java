@@ -40,11 +40,6 @@ public class Movie extends LibraryItem {
         return result;
     }
 
-    @Override
-    public String toString() {
-        return "Movie " + this.title;
-    }
-
     public boolean equals(Movie movie) {
         boolean result = true;
 

@@ -53,8 +53,4 @@ public class Book extends LibraryItem {
         return otherBook.getClass() == this.getClass() &&
                 this.title.equals(((Book)otherBook).getTitle());
     }
-
-    public String toString() {
-        return "Book " + this.title;
-    }
 }

@@ -3,7 +3,7 @@ package com.twu.biblioteca;
 /**
  * Created by nataliadjohari on 27/02/2017.
  */
-public class LibraryItem {
+public abstract class LibraryItem {
     String title;
 
     public LibraryItem(String title) {
@@ -12,5 +12,10 @@ public class LibraryItem {
 
     public String getTitle() {
         return this.title;
+    }
+
+    @Override
+    public String toString() {
+        return this.getClass().getName() + " " + this.title;
     }
 }
