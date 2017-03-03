@@ -1,7 +1,12 @@
 package com.twu.biblioteca;
 
+import com.sun.org.apache.bcel.internal.generic.RETURN;
+
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+
+import static com.twu.biblioteca.Menu.Option.*;
 
 /**
  * Created by nataliadjohari on 22/02/2017.
@@ -34,24 +39,36 @@ public class Menu {
         }
     };
 
+    private static List<String> fullList = new ArrayList<String>(
+            Arrays.asList(
+                    LIST_BOOKS.toString(),
+                    LIST_MOVIES.toString(),
+                    LIST_CHECKEDOUT.toString(),
+                    LOGIN.toString(),
+                    QUIT.toString()
+            )
+    );
+    private static List<String> basicList = new ArrayList<String>(
+            Arrays.asList(
+                    LIST_BOOKS.toString(),
+                    LIST_MOVIES.toString(),
+                    LIST_CHECKEDOUT.toString(),
+                    CHECKOUT_BOOK.toString(),
+                    RETURN_BOOK.toString(),
+                    CHECKOUT_MOVIE.toString(),
+                    RETURN_MOVIE.toString(),
+                    VIEW_DETAILS.toString(),
+                    LOGOUT.toString(),
+                    QUIT.toString()
+            )
+    );
+
     public static List<String> getBasicMenuOptionsList() {
-        List<String> options = new ArrayList<String>();
-        for (Option o: Option.values()) {
-            if (o.isBasic()) {
-                options.add(o.toString());
-            }
-        }
-        return options;
+        return fullList;
     }
 
     public static List<String> getFullMenuOptionsList() {
-        List<String> options = new ArrayList<String>();
-        for (Option o: Option.values()) {
-            if (o == Option.LOGIN)
-                continue;
-            options.add(o.toString());
-        }
-        return options;
+        return basicList;
     }
 
     public static Option valueOf(String command) {
