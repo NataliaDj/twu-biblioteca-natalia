@@ -194,7 +194,7 @@ public class BibliotecaApp {
         this.user = lib.getUser(librarynum, password);
         if (isLoggedIn()) {
             return "Welcome " + this.user.getName();
-        } else if (!librarynum.isEmpty() && !password.isEmpty()) {
+        } else if (!librarynum.equals("") && !password.equals("")) {
             return "Login failed. Please try again";
         } else {
             return "Please enter library number and password in the format 'Login [library number] [password]'";
