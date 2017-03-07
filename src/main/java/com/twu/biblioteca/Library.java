@@ -6,17 +6,14 @@ import java.util.*;
  * Created by nataliadjohari on 21/02/2017.
  */
 public class Library {
-    private List<Book> bookList;
-    private Map<Book, String> checkedoutBookList;
-    private List<Movie> movieList;
-    private Map<Movie, String> checkedoutMovieList;
+    private List<LibraryItem> items;
     private List<User> usersList;
 
     public Library(List<Book> booksList, List<Movie> moviesList, List<User> usersList) {
-        this.bookList = booksList;
-        this.checkedoutBookList = new HashMap<Book, String>();
-        this.movieList = moviesList;
-        this.checkedoutMovieList = new HashMap<Movie, String>();
+        items = new ArrayList<LibraryItem>();
+        items.addAll(booksList);
+        items.addAll(moviesList);
+
         this.usersList = usersList;
     }
 
@@ -54,75 +51,83 @@ public class Library {
     }
 
     public List<Book> getBookList() {
-        return bookList;
-    }
+        List<Book> availableBooks = new ArrayList<Book>();
 
-    public void addBook(Book book) {
-        this.bookList.add(book);
-    }
-
-    public boolean checkoutBook(String title, String libraryNum) {
-        int pos = this.getTitlePosition(title, this.bookList);
-
-        if (pos < this.bookList.size()) {
-            Book book = this.bookList.remove(pos);
-            this.checkedoutBookList.put(book, libraryNum);
-            return true;
+        for (LibraryItem item: this.items) {
+            if (item.getType() == LibraryItem.Type.BOOK && item.isAvailable())
+                availableBooks.add((Book) item);
         }
-        return false;
-    }
 
-    public boolean returnBook(String title) {
-        for (Book b: this.checkedoutBookList.keySet()) {
-            if (b.getTitle().equals(title)) {
-                this.checkedoutBookList.remove(b);
-                this.bookList.add(b);
-                return true;
-            }
-        }
-        return false;
+        return availableBooks;
     }
 
     public List<Movie> getMoviesList() {
-        return this.movieList;
+        List<Movie> availableMovies = new ArrayList<Movie>();
+
+        for (LibraryItem item: this.items) {
+            if (item.getType() == LibraryItem.Type.MOVIE && item.isAvailable())
+                availableMovies.add((Movie) item);
+        }
+
+        return availableMovies;
+    }
+
+    public void addBook(Book book) {
+        addLibraryItem(book);
     }
 
     public void addMovie(Movie movie) {
-        this.movieList.add(movie);
+        addLibraryItem(movie);
+    }
+
+    private void addLibraryItem(LibraryItem item) {
+        this.items.add(item);
+    }
+
+    public boolean checkoutBook(String title, String libraryNum) {
+        return checkoutItem(title, libraryNum, LibraryItem.Type.BOOK);
     }
 
     public boolean checkoutMovie(String title, String libraryNum) {
-        int pos = getTitlePosition(title, this.movieList);
-
-        if (pos < this.movieList.size()) {
-            Movie movie = this.movieList.remove(pos);
-            this.checkedoutMovieList.put(movie, libraryNum);
-            return true;
-        }
-        return false;
+        return checkoutItem(title, libraryNum, LibraryItem.Type.MOVIE);
     }
 
-    public boolean returnMovie(String title) {
-        for(Movie movie: this.checkedoutMovieList.keySet()) {
-            if (movie.getTitle().equals(title)) {
-                this.checkedoutMovieList.remove(movie);
-                this.movieList.add(movie);
-                return true;
-            }
-        }
-        return false;
-    }
+    private boolean checkoutItem(String title, String libraryNum, LibraryItem.Type type) {
+        // Find the item in list
+        for (LibraryItem item: this.items) {
+            if (item.getTitle().equals(title) && item.getType() == type) {
 
-    public int getTitlePosition(String title, List<? extends LibraryItem> list) {
-        int i = 0;
-        for (; i < list.size(); i++) {
-            if (list.get(i).getTitle().equals(title)) {
+                // Checkout only if available
+                if (item.isAvailable()) {
+                    item.checkoutItem(libraryNum);
+                    return true;
+                }
                 break;
             }
         }
+        return false;
+    }
 
-        return i;
 
+    public boolean returnBook(String title) {
+        return returnItem(title, LibraryItem.Type.BOOK);
+    }
+
+    public boolean returnMovie(String title) {
+        return returnItem(title, LibraryItem.Type.MOVIE);
+    }
+
+    private boolean returnItem(String title, LibraryItem.Type type) {
+        for (LibraryItem item: this.items) {
+            if (item.getType() == type && item.getTitle().equals(title)) {
+                if (item.isCheckedout()) {
+                    item.returnItem();
+                    return true;
+                }
+                break;
+            }
+        }
+        return false;
     }
 
     public List<User> getUsersList() {
@@ -140,19 +145,20 @@ public class Library {
     }
 
     public String getCheckedoutBooksDetails() {
-        String result = "";
-        for (Book b: this.checkedoutBookList.keySet()) {
-            result += b.getTitle() + " - " + this.checkedoutBookList.get(b) + "\n";
-        }
-        return result;
+        return getCheckedoutItemDetails(LibraryItem.Type.BOOK);
     }
 
     public String getCheckedoutMoviesDetails() {
+        return getCheckedoutItemDetails(LibraryItem.Type.MOVIE);
+    }
+
+    private String getCheckedoutItemDetails(LibraryItem.Type type) {
         String result = "";
-        for (Movie m: this.checkedoutMovieList.keySet()) {
-            result += m.getTitle() + " - " + this.checkedoutMovieList.get(m) + "\n";
+        for (LibraryItem item: this.items) {
+            if (item.getType() == type && item.isCheckedout()) {
+                result += item.getTitle() + " - " + item.getCheckoutDetail() + "\n";
+            }
         }
         return result;
     }
-
 }

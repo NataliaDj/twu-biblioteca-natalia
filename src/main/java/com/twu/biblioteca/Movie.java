@@ -15,6 +15,7 @@ public class Movie extends LibraryItem {
         this.director = director;
         this.year = year;
         this.rating = rating;
+        this.setType(Type.MOVIE);
     }
 
     public String getDirector() {

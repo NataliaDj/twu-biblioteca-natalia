@@ -4,10 +4,11 @@ package com.twu.biblioteca;
  * Created by nataliadjohari on 27/02/2017.
  */
 public abstract class LibraryItem {
-    private enum Status { CHECKEDOUT, AVAILABLE }
+    public enum Type { BOOK, MOVIE }
 
-    private Status status;
+    private Type type;
     private String title;
+    private String borrower;
 
     public LibraryItem(String title) {
         this.title = title;
@@ -25,14 +26,30 @@ public abstract class LibraryItem {
     }
 
     public boolean isCheckedout() {
-        return this.status == Status.CHECKEDOUT;
+        return borrower != null;
     }
 
-    public void checkoutItem() {
-        this.status = Status.CHECKEDOUT;
+    public boolean isAvailable() {
+        return borrower == null;
+    }
+
+    public void checkoutItem(String borrower) {
+        this.borrower = borrower;
+    }
+
+    public String getCheckoutDetail() {
+        return this.borrower;
     }
 
     public void returnItem() {
-        this.status = Status.AVAILABLE;
+        this.borrower = null;
+    }
+
+    public Type getType() {
+        return type;
+    }
+
+    protected void setType(Type type) {
+        this.type = type;
     }
 }

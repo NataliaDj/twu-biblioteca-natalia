@@ -11,6 +11,7 @@ public class Book extends LibraryItem {
         super(title);
         this.author = author;
         this.yearPublished = yearPublished;
+        this.setType(Type.BOOK);
     }
 
     public Book(String title) {
