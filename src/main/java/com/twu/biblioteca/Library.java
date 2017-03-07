@@ -109,20 +109,22 @@ public class Library {
     }
 
 
-    public boolean returnBook(String title) {
-        return returnItem(title, LibraryItem.Type.BOOK);
+    public boolean returnBook(String title, String libraryNum) {
+        return returnItem(title, libraryNum, LibraryItem.Type.BOOK);
     }
 
-    public boolean returnMovie(String title) {
-        return returnItem(title, LibraryItem.Type.MOVIE);
+    public boolean returnMovie(String title, String libraryNum) {
+        return returnItem(title, libraryNum, LibraryItem.Type.MOVIE);
     }
 
-    private boolean returnItem(String title, LibraryItem.Type type) {
+    private boolean returnItem(String title, String libraryNum, LibraryItem.Type type) {
+        // Find the item in list
         for (LibraryItem item: this.items) {
             if (item.getType() == type && item.getTitle().equals(title)) {
+
+                // Return only if the it's checked-out
                 if (item.isCheckedout()) {
-                    item.returnItem();
-                    return true;
+                    return item.returnItem(libraryNum);
                 }
                 break;
             }

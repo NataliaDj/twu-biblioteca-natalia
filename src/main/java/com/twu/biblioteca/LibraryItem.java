@@ -41,8 +41,12 @@ public abstract class LibraryItem {
         return this.borrower;
     }
 
-    public void returnItem() {
-        this.borrower = null;
+    public boolean returnItem(String borrower) {
+        if (borrower != null && borrower.equals(borrower)) {
+            this.borrower = null;
+            return true;
+        }
+        return false;
     }
 
     public Type getType() {
