@@ -34,19 +34,19 @@ public class Library {
 
         List<Movie> moviesList = new ArrayList<Movie>(
                 Arrays.asList(
-                        new Movie("Jaws", "Steven Spielberg", 1975, 8),
-                        new Movie("The Lion King", "Roger Allers", 1994, 9),
-                        new Movie("Letters To Juliet", "Gary Winick", 2010, 7),
-                        new Movie("Imitation Game", "Morten Tyldum", 2014, 8)
+                    new Movie("Jaws", "Steven Spielberg", 1975, 8),
+                    new Movie("The Lion King", "Roger Allers", 1994, 9),
+                    new Movie("Letters To Juliet", "Gary Winick", 2010, 7),
+                    new Movie("Imitation Game", "Morten Tyldum", 2014, 8)
                 )
         );
 
         List<User> usersList = new ArrayList<User>(
                 Arrays.asList(
-                        new User("004-1027", "pass", "John Smith", "j.smith@mail.com", "8903921"),
-                        new User("210-3201", "pass1", "Mary Jane", "plainjane@email.com", "06782911"),
-                        new User("100-0420", "pass2", "Frederick Roberts", "freddie.r@rocketmail.com", "39274812"),
-                        new User("186-6749", "pass3", "Bethany Sue", "beths@workmail.com", "017620371")
+                    new User("004-1027", "pass", "John Smith", "j.smith@mail.com", "8903921"),
+                    new User("210-3201", "pass1", "Mary Jane", "plainjane@email.com", "06782911"),
+                    new User("100-0420", "pass2", "Frederick Roberts", "freddie.r@rocketmail.com", "39274812"),
+                    new User("186-6749", "pass3", "Bethany Sue", "beths@workmail.com", "017620371")
                 )
         );
 
