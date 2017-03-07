@@ -112,7 +112,7 @@ public class BibliotecaApp {
     }
 
     private String returnBook(String title) {
-        if (lib.returnBook(title)) {
+        if (lib.returnBook(title, user.getLibraryNumber())) {
             return returnSuccessfulMessage("book");
         } else {
             return returnFailMessage("book");
@@ -128,7 +128,7 @@ public class BibliotecaApp {
     }
 
     private String returnMovie(String title) {
-        if (lib.returnMovie(title)) {
+        if (lib.returnMovie(title, user.getLibraryNumber())) {
             return returnSuccessfulMessage("movie");
         } else {
             return returnFailMessage("movie");

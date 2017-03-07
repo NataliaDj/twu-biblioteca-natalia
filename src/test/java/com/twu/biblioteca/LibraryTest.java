@@ -100,7 +100,7 @@ public class LibraryTest {
         Book book = new Book(title);
         lib.addBook(book);
         lib.checkoutBook(title, defaultLibraryNum);
-        lib.returnBook(title);
+        lib.returnBook(title, defaultLibraryNum);
         assertThat(lib.getBookList(), hasItem(book));
     }
 
@@ -109,12 +109,12 @@ public class LibraryTest {
         String title = "Three Blind Mice";
         lib.addBook(new Book(title));
         lib.checkoutBook(title, defaultLibraryNum);
-        assertThat(lib.returnBook(title), is(true));
+        assertThat(lib.returnBook(title, defaultLibraryNum), is(true));
     }
 
     @Test
     public void returnBookUnsuccessfullyReturnFalse() {
-        assertThat(lib.returnBook("Three Blind Mice"), is(false));
+        assertThat(lib.returnBook("Three Blind Mice", defaultLibraryNum), is(false));
     }
 
     @Test
@@ -152,7 +152,7 @@ public class LibraryTest {
     public void returnMovieInsertsMovieToMovieListTest() {
         lib.addMovie(movie);
         lib.checkoutMovie(movie.getTitle(), defaultLibraryNum);
-        lib.returnMovie(movie.getTitle());
+        lib.returnMovie(movie.getTitle(), defaultLibraryNum);
         assertThat(lib.getMoviesList(), hasItem(movie));
     }
 
@@ -160,12 +160,12 @@ public class LibraryTest {
     public void returnMovieSuccessfullyReturnsTrue() {
         lib.addMovie(movie);
         lib.checkoutMovie(movie.getTitle(), defaultLibraryNum);
-        assertThat(lib.returnMovie(movie.getTitle()), is(true));
+        assertThat(lib.returnMovie(movie.getTitle(), defaultLibraryNum), is(true));
     }
 
     @Test
     public void returnMovieUnsuccessfullyReturnFalse() {
-        assertThat(lib.returnMovie(movie.getTitle()), is(false));
+        assertThat(lib.returnMovie(movie.getTitle(), defaultLibraryNum), is(false));
     }
 
     @Test

@@ -93,6 +93,7 @@ public class Library {
     }
 
     private boolean checkoutItem(String title, String libraryNum, LibraryItem.Type type) {
+        isValidLibraryNum(libraryNum);
         // Find the item in list
         for (LibraryItem item: this.items) {
             if (item.getTitle().equals(title) && item.getType() == type) {
@@ -118,6 +119,7 @@ public class Library {
     }
 
     private boolean returnItem(String title, String libraryNum, LibraryItem.Type type) {
+        isValidLibraryNum(libraryNum);
         // Find the item in list
         for (LibraryItem item: this.items) {
             if (item.getType() == type && item.getTitle().equals(title)) {
@@ -136,14 +138,24 @@ public class Library {
         return this.usersList;
     }
 
-    public User getUser(String librarynum, String password) {
+    public User getUser(String libraryNum, String password) {
         for (User u: this.usersList) {
-            if (librarynum.equals(u.getLibraryNumber()) &&
+            if (libraryNum.equals(u.getLibraryNumber()) &&
                     password.equals(u.getPassword())) {
                 return u;
             }
         }
         return null;
+    }
+
+    public boolean isValidLibraryNum(String libraryNum) {
+        for (User u: this.usersList) {
+            if (libraryNum.equals(u.getLibraryNumber())) {
+                return true;
+            }
+        }
+        return false;
+
     }
 
     public String getCheckedoutBooksDetails() {
