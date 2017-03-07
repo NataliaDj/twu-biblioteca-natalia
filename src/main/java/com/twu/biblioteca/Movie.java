@@ -32,7 +32,7 @@ public class Movie extends LibraryItem {
     public String getDetails() {
         String result = "";
 
-        result += this.title + "\n";
+        result += this.getTitle() + "\n";
         result += "Director: " + this.director + "\n";
         result += "Year Released: " + this.year + "\n";
         result += "Rating: " + this.rating + "\n";
@@ -43,7 +43,7 @@ public class Movie extends LibraryItem {
     public boolean equals(Movie movie) {
         boolean result = true;
 
-        result &= title.equals(movie.getTitle());
+        result &= this.getTitle().equals(movie.getTitle());
         result &= director.equals(movie.getDirector());
         result &= year == movie.getYearReleased();
         result &= rating == movie.getRating();

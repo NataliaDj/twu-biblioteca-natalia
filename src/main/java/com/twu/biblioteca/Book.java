@@ -40,7 +40,7 @@ public class Book extends LibraryItem {
     public String getDetails() {
         String result = "";
 
-        result += this.title;
+        result += this.getTitle();
         result += "\nAuthor: " + this.author;
         result += "\nYear Published: " + this.yearPublished;
         result += "\n";
@@ -51,6 +51,6 @@ public class Book extends LibraryItem {
     @Override
     public boolean equals(Object otherBook) {
         return otherBook.getClass() == this.getClass() &&
-                this.title.equals(((Book)otherBook).getTitle());
+                this.getTitle().equals(((Book)otherBook).getTitle());
     }
 }
